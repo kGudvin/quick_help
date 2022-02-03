@@ -1,0 +1,44 @@
+.container__main {
+  padding: 100px 0px 100px 0px;
+  min-height: 900px;
+
+}
+.wrapper__img_main{
+  background: url("../img/изображение_карты.png");
+ 
+ } 
+.wrapper__img_main {
+  width: 100%;
+  /* background: url("../img/изображение_карты.png"); */
+  background-color: rgba(249, 245, 245, 0.5);
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.wrapper__btns_main {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+.btns__main {
+  margin: 10px;
+}
+.header__main {
+  font-weight: 500;
+  font-size: 50px;
+  line-height: 80px;
+}
+.subheader__main{
+  font-weight: 400;
+  font-size: 30px;
+}
+.header__main span{
+  font-weight: 700;
+}
+
+
+/* .img__main{
+  width: 100%;
+} */
