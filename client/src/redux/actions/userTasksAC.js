@@ -9,9 +9,9 @@ export const setTask = (value) => {
 }
 
 export const getUsersTasks = () =>  async(dispatch) => {
-
     axios('/userstasks')
     .then(res => dispatch(setTask(res.data.allUsersTasks)))
     .catch(err => console.log(err))
 }
+
 
