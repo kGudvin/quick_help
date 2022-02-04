@@ -1,30 +1,40 @@
 const express = require('express');
-const morgan = require('morgan');
 const cors = require('cors');
-const axios = require('axios');
-const redis = require('redis');
+const morgan = require('morgan');
+var session = require('express-session');
+var FileStore = require('session-file-store')(session);
 
+
+const userRouter = require('./routes/userRouter');
+const rolesRouter = require('./routes/rolesRouter');
 
 const PORT = 3001;
 const app = express();
 
 
-
-app.use(cors({
-  origin: true,
-  credentials: true
-}));
-app.use(morgan('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(morgan('dev'));
+
+//необходим для авторизации
+app.use(cors({
+    credentials: true,
+    origin: 'http://localhost:3000',
+}));
+
+app.use(
+    session({
+      name:'sid',
+      store: new FileStore({}),
+      saveUninitialized: false,
+      secret: 'dsmkalmdkl',
+      resave: false,
+    })
+);
 
 
-
-app.get('/', (req, res) => {
-  res.sendStatus(200);
-})
-
+app.use('/user', userRouter);
+app.use('/roles', rolesRouter)
 
 app.listen(PORT, () => {
-  console.log("server started on PORT ", PORT);
+    console.log('Server start on port ', PORT)
 })
