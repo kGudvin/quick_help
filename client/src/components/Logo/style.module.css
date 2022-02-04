@@ -14,7 +14,15 @@
     font-size: 20px;
     line-height: 24px;
     /* identical to box height */
+    color: #0B132A;
+}
+a.link{
+    color: #0B132A;
+    text-decoration: none;
 
 
+
+}
+a.link:active{
     color: #0B132A;
 }

@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom'
 import style from './style.module.css'
+
 
 
 
@@ -10,9 +12,9 @@ const NavLink = () => {
 
     return (
         <div className={style.link_list}>
-                <a href='#' className={style.link}>Добавить задание</a>
-                <a href='#' className={style.link}>Найти задание</a>
-                <a href='#' className={style.link}>Задания</a>
+                <Link to='addtask' className={style.link}>Добавить задание</Link>
+                <Link to='findtask' className={style.link}>Найти задание</Link>
+                <Link to='tasks' className={style.link}>Задания</Link>
             </div>
     )
 }
