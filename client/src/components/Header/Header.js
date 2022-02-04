@@ -7,8 +7,6 @@ import style from './style.module.css'
 
 const Header = () =>{
     const user = useSelector(state=> state.users)
-    console.log(user);
-
     return (
         <nav className={`${style.nav}`}>
             <Logo/>
