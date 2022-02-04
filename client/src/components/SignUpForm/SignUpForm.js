@@ -3,8 +3,9 @@ import { useSelector, useDispatch} from 'react-redux'
 import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import { getRoles } from '../../redux/actions/rolesAC';
 import { getUser } from '../../redux/actions/userAC';
-import CustomInput from '../Input/Input'
+import CustomInput from '../UI/Input/Input'
 import CustomButton from '../UI/Buttons/MainButton'
+import { useNavigate } from "react-router-dom"
 
 
 const Signupform = () => {
@@ -12,6 +13,8 @@ const Signupform = () => {
 
     const dispatch = useDispatch();
     const roles = useSelector( state => state.roles);
+    const user = useSelector(state=> state.users)
+    const navigate = useNavigate()
 
     const inputHandler = (e) => {
         setInputs(prev => ({...prev, [e.target.name]: e.target.value}))
@@ -19,6 +22,7 @@ const Signupform = () => {
 
     useEffect(() => {
         dispatch(getRoles())
+        // navigate("/")
     }, []);
 console.log(inputs);
     const submitHandler = (e) => {
