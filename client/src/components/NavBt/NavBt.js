@@ -8,6 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 const NavBt = () => {
     let user = true;
     user = false
+    
 
     return(
         <div className={`${style.nav_bt}`}>
