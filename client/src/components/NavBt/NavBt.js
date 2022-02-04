@@ -1,5 +1,6 @@
 import ButtonCircle from "../UI/Buttons/ButtonCircle"
 import style from './style.module.css'
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
@@ -7,18 +8,13 @@ import style from './style.module.css'
 const NavBt = () => {
     let user = true;
     user = false
-    const handleButton = () =>{
-
-        console.log('aaaaaaaaaaaa');
-    }
-
-
+    
 
     return(
         <div className={`${style.nav_bt}`}>
-            <div ><a href="" className={`${style.nav_link}`}>Sign In</a></div>
+            <div ><Link to="/signIn" className={`${style.nav_link}`}>Sign In</Link></div>
             
-           <ButtonCircle Handler={handleButton}>Sign Up</ButtonCircle>
+          <Link to="/signUp"><ButtonCircle>Sign Up</ButtonCircle></Link>
         </div>
     )
 }

@@ -16,6 +16,8 @@ module.exports = {
         image: faker.image.avatar(),
         rating: 5,
         phone: faker.phone.phoneFormats().toString(),
+        role_id: 1,
+        password:'1',
         createdAt:new Date(),
         updatedAt:new Date()
         });

@@ -1,10 +1,10 @@
-import { SET_USER } from "../types/usersTypes";
+import { SET_ROLES } from "../types/rolesTypes";
 
-export const usersReducer = (state = null, action) => {
+export const rolesReducer = (state = [], action) => {
     const {type, payload} = action;
 
     switch (type) {
-        case SET_USER:
+        case SET_ROLES:
             return payload;
     
         default:

@@ -56,7 +56,7 @@ function MainPage() {
       </div>
       <div className={style.container__block_small}>
        <div className={style.img__block__small_round}>
-        <i class="fas fa-map-marker-alt"></i>
+        <i className="fas fa-map-marker-alt"></i>
         </div>
         <div className={style.text__block_small}>
         текст о картинке сверху
@@ -65,7 +65,7 @@ function MainPage() {
       </div>
       <div className={style.container__block_small}>
        <div className={style.img__block__small_round}>
-       <i class="fas fa-funnel-dollar"></i>
+       <i className="fas fa-funnel-dollar"></i>
         </div>
         <div className={style.text__block_small}>
         текст о картинке 
