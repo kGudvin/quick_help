@@ -12,6 +12,12 @@ module.exports = (sequelize, DataTypes) => {
     static associate({ UserTasks }) {
       // define association here
       this.belongsToMany(UserTasks, { through: 'User-UserTasks', foreignKey: 'userId' });
+      
+    }
+    static associate({Categories }) {
+      // define association here
+      this.belongsToMany(Categories, { through: 'Users-Categories', foreignKey: 'userId' });
+      
     }
   }
   Users.init({
