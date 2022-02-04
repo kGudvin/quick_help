@@ -1,5 +1,5 @@
 .container__main {
-  padding: 100px 0px 50px 0px;
+  padding: 50px 0px 50px 0px;
   min-height: 600px; 
 }
 .overlay__main_img{
@@ -93,4 +93,10 @@
 .text__block_small{
   font-size: 20px;
   margin: 0 10px 0 10px;
+}
+
+/* малекьие таски */
+.container__taskBlock{
+  padding: 50px 0px 50px 0px;
+  min-height: 600px; 
 }

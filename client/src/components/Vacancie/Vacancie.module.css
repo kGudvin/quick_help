@@ -1,0 +1,12 @@
+.wrapper__vacantie{
+  width: 400px;
+  min-height: 90px;
+  display: flex;
+
+}
+.img__vacantie{
+  width: 40%;
+}
+.img__vacantie img{
+  width: 100%;
+}
