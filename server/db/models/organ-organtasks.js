@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Organ - OrganTasks extends Model {
+  class OrganToOrganTasks extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,12 +13,12 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Organ - OrganTasks.init({
+  OrganToOrganTasks.init({
     organizationId: DataTypes.INTEGER,
     taskId: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'Organ-OrganTasks',
+    modelName: 'OrganToOrganTasks',
   });
-  return Organ - OrganTasks;
+  return OrganToOrganTasks;
 };
