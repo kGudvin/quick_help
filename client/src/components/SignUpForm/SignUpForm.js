@@ -3,7 +3,7 @@ import { useSelector, useDispatch} from 'react-redux'
 import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import { getRoles } from '../../redux/actions/rolesAC';
 import { getUser } from '../../redux/actions/userAC';
-import CustomInput from '../Input/Input'
+import CustomInput from '../UI/Input/Input'
 import CustomButton from '../UI/Buttons/MainButton'
 
 

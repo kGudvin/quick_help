@@ -1,5 +1,5 @@
 .container__main {
-  padding: 100px 0px 50px 0px;
+  padding: 50px 0px 50px 0px;
   min-height: 600px; 
 }
 .overlay__main_img{
@@ -26,10 +26,12 @@
   font-weight: 500;
   font-size: 50px;
   line-height: 80px;
+  text-transform: uppercase;
 }
 .subheader__main {
   font-weight: 400;
   font-size: 22px;
+  text-transform: uppercase;
 }
 .header__main span {
   font-weight: 700;
@@ -93,4 +95,24 @@
 .text__block_small{
   font-size: 20px;
   margin: 0 10px 0 10px;
+}
+
+/* малекьие таски */
+.container__taskBlock{
+  padding: 30px 50px 70px 50px;
+  min-height: 600px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container__taskBlock h3{
+  text-align: center;
+}
+.vacatcies__taskBlock{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
