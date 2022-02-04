@@ -1,16 +1,13 @@
 .container__main {
-  padding: 100px 0px 100px 0px;
-  min-height: 900px;
-
+  padding: 100px 0px 50px 0px;
+  min-height: 600px; 
 }
-.wrapper__img_main{
-  background: url("../img/изображение_карты.png");
- 
- } 
-.wrapper__img_main {
+.overlay__main_img{
+   background: url("../img/изображение_карты.png"),rgba(236, 164, 164, 0.8);
+}
+.wrapper__main_img {
+  background-color: rgba(250, 250, 250, 0.5);
   width: 100%;
-  /* background: url("../img/изображение_карты.png"); */
-  background-color: rgba(249, 245, 245, 0.5);
   min-height: 600px;
   display: flex;
   flex-direction: column;
@@ -30,15 +27,70 @@
   font-size: 50px;
   line-height: 80px;
 }
-.subheader__main{
+.subheader__main {
   font-weight: 400;
-  font-size: 30px;
+  font-size: 22px;
 }
-.header__main span{
+.header__main span {
   font-weight: 700;
 }
 
 
-/* .img__main{
+
+
+
+
+/* //block с мужиком */
+.container__block{
+  padding: 50px 70px 0px 70px;
+  min-height: 550px;
+  display: flex;
+}
+.container__block i{
+  color:red
+}
+.text__block{
+  width: 50%;
+}
+.img__block{
+  width: 50%;
+}
+.img__block img{
   width: 100%;
-} */
+}
+
+
+
+
+/* контейне с кружками и информацией */
+.container__small{
+  padding: 0px 0px 50px 0px;
+  min-height: 200px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.container__small hr{
+  width: 1px;
+  height: 50px;
+}
+.img__block__small_round{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 55px;
+  height: 55px;
+  border-radius: 100%;
+  background: #FFECEC;
+  color: #F53855;
+  font-size: 24px;
+}
+.container__block_small{
+  display: flex;
+  align-items: center;
+}
+.text__block_small{
+  font-size: 20px;
+  margin: 0 10px 0 10px;
+}
