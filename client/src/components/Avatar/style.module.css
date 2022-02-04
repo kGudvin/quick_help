@@ -1,12 +1,10 @@
 .avatar{
     height: 45px;
     width: 45px;
-    /* margin-top: 45px; */
     padding: 0px;
-    margin-right: 195px;
+    /* margin-right: 195px;
     margin-left: auto;
-    margin-top: 48px;
-    /* background-color: #F53855; */
+    margin-top: 48px; */
     border: 1px solid #F53855;
     border-radius: 100%;
     box-shadow: 0px 4px 4px rgba(245, 56, 56, 0.25);
@@ -14,8 +12,27 @@
 
 }
 
+.nav_link{
+    margin-right: 30px;
+    margin-top: 13px;
+    width: 53px;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-decoration: none;
+    /* identical to box height */
 
-.avatar:hover{
 
+    color: #0B132A;
+
+}
+
+.av{
+    display: flex;
+    margin-right: 195px;
+    margin-left: auto;
+    margin-top: 48px;
     
 }
