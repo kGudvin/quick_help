@@ -1,0 +1,11 @@
+.nav{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    height: 90px;
+
+
+}
+.link{
+    margin-top: 50px;
+}
