@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Button, Col, Form, FormGroup, Label, Row } from 'reactstrap';
 import style from './style.module.css';
 import { signInUser } from '../../redux/actions/userAC';
-import Input from '../Input/Input'
+import Input from '../UI/Input/Input'
 import CustomButton from '../UI/Buttons/MainButton'
 
 

@@ -2,9 +2,9 @@ import "./App.css";
 import { Route, Routes } from "react-router";
 import MainPage from "./components/pages/MainPage";
 import Header from "./components/Header/Header";
-import AddTask from "./components/AddTask/AddTask";
-import FindTask from "./components/FindTask/FindTask";
-import Tasks from "./components/Tasks/Tasks";
+import AddTask from "./components/pages/AddTask/AddTask";
+import FindTask from "./components/pages/FindTask/FindTask";
+import Tasks from "./components/pages/Tasks/Tasks";
 
 
 import AuthUser from './components/ProtectedAuth/AuthUser';
