@@ -1,4 +1,5 @@
-// export const initState ={
-//   users:[],
-//   tasks:[]
-// }
+export const initState ={
+  users: null,
+  tasks:[],
+  roles:[]
+}
