@@ -1,35 +1,37 @@
 'use strict';
+const { faker } = require('@faker-js/faker');
+
 
 module.exports = {
   async up (queryInterface, Sequelize) {
 
     await queryInterface.bulkInsert('Categories', [{
-      title:"КАТЕГОРИЯ 1",
-      value:"категория 1",
+      title:"Курьерские услуги",
+      value:"Курьерские услуги",
       createdAt:new Date(),
       updatedAt:new Date()
     },
     {
-      title:"КАТЕГОРИЯ 1",
-      value:"категория 1",
+      title:"Ремонт и строительство",
+      value:"Ремонт и строительство",
       createdAt:new Date(),
       updatedAt:new Date()
     },
     {
-      title:"КАТЕГОРИЯ 2",
-      value:"категория 2",
+      title:"Грузоперевозки",
+      value:"Грузоперевозки",
       createdAt:new Date(),
       updatedAt:new Date()
     },
     {
-      title:"КАТЕГОРИЯ 3",
-      value:"категория 3",
+      title:"Уборка помещения",
+      value:"Уборка помещения",
       createdAt:new Date(),
       updatedAt:new Date()
     },
     {
-      title:"КАТЕГОРИЯ 4",
-      value:"категория 4",
+      title:"Компьютерная помощь",
+      value:"Компьютерная помощь",
       createdAt:new Date(),
       updatedAt:new Date()
     }], {});
