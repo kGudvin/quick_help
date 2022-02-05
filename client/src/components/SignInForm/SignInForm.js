@@ -5,7 +5,7 @@ import { Button, Col, Form, FormGroup, Label, Row } from 'reactstrap';
 import style from './style.module.css';
 import { signInUser } from '../../redux/actions/userAC';
 import Input from '../UI/Input/Input'
-import CustomButton from '../UI/Buttons/MainButton'
+import CustomButton from '../UI/Buttons/ButtonCircle'
 
 
 const Signinform = () => {
@@ -32,7 +32,7 @@ const Signinform = () => {
                 </Row>
                 <Form onSubmit={submitHandler}>
                     <FormGroup>
-                        <Label for='email'>Email</Label>
+                        <Label for='email'>Email</Label><br/>
                         <Input
                             id='email'
                             type='text'
@@ -42,7 +42,7 @@ const Signinform = () => {
                         />
                     </FormGroup>
                     <FormGroup>
-                        <Label for='password'>password</Label>
+                        <Label for='password'>password</Label><br/>
                         <Input
                             id='password'
                             type='password'
@@ -50,9 +50,9 @@ const Signinform = () => {
                             value={inputs.password}
                             onChange={inputsHandler}
                         />
-                    </FormGroup>
+                    </FormGroup><br/>
                     <CustomButton >
-                        Submit
+                        Войти
                     </CustomButton>
                 </Form>
                 <Row>

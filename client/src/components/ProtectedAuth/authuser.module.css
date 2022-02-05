@@ -1,0 +1,26 @@
+.page{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color:violet;
+    background-image: url(./fon1.jpg);
+    
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* justify-content: space-between; */
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 400px;
+    height: 600px;
+    background-color:white;
+    border-radius:20px;
+    box-shadow:         0px 1px 3px 0px rgba(37, 50, 50, 0.56);
+    
+
+}

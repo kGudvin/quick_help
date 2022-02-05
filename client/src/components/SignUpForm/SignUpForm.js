@@ -4,7 +4,7 @@ import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import { getRoles } from '../../redux/actions/rolesAC';
 import { getUser } from '../../redux/actions/userAC';
 import CustomInput from '../UI/Input/Input'
-import CustomButton from '../UI/Buttons/MainButton'
+import CustomButton from '../UI/Buttons/ButtonCircle'
 import { useNavigate } from "react-router-dom"
 
 
@@ -42,7 +42,7 @@ console.log(inputs);
                 </Row>
                 <Form onSubmit={submitHandler}>
                     <FormGroup>
-                        <Label for='name'>Name</Label>
+                        <Label for='name'>Name</Label><br/>
                         <CustomInput
                             id='name'
                             type='text'
@@ -52,7 +52,7 @@ console.log(inputs);
                         />
                     </FormGroup>
                     <FormGroup>
-                        <Label for='email'>Email</Label>
+                        <Label for='email'>Email</Label><br/>
                         <CustomInput
                             id='email'
                             type='text'
@@ -62,7 +62,7 @@ console.log(inputs);
                         />
                     </FormGroup>
                     <FormGroup>
-                        <Label for='password'>password</Label>
+                        <Label for='password'>password</Label><br/>
                         <CustomInput
                             id='password'
                             type='password'
@@ -72,7 +72,7 @@ console.log(inputs);
                         />
                     </FormGroup>
                     <FormGroup>
-                        <Label for='roles'>choose role</Label>
+                        <Label for='roles'>choose role</Label><br/>
                         <Input
                             id='roles'
                             type='select'
@@ -85,9 +85,10 @@ console.log(inputs);
                             )}
                             
                         </Input>
-                    </FormGroup>
+                        {/* <input type={'select'}/> */}
+                    </FormGroup><br/>
                     <CustomButton >
-                        Submit
+                        Зарегестрироваться 
                     </CustomButton>
                 </Form>
             </Col>

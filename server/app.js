@@ -7,6 +7,7 @@ var FileStore = require('session-file-store')(session);
 
 const userRouter = require('./routes/userRouter');
 const rolesRouter = require('./routes/rolesRouter');
+const usersTasksRouter = require('./routes/usersTasksRouter');
 
 const PORT = 3001;
 const app = express(); 
@@ -34,6 +35,7 @@ app.use(
 
 app.use('/user', userRouter);
 app.use('/roles', rolesRouter)
+app.use('/userstasks', usersTasksRouter)
 
 app.listen(PORT, () => {
     console.log('Server start on port ', PORT)

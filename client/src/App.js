@@ -13,6 +13,7 @@ import Signinform from "./components/SignInForm/SignInForm";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { checkUser } from "./redux/actions/userAC";
+import Footer from "./components/Footer/Footer";
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
             }/>
 
       </Routes>
+      <Footer/>
     </>
   );
 }
