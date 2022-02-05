@@ -34,10 +34,4 @@ export const checkUser = () => async (dispatch) => {
     dispatch(setUser(null))
     
   }
-  // console.log(res)
-  // if(res.statusText){
-  //   console.log(res.statusText);
-  // } else {
-  //   console.log(res.statusText);
-  // }
 }

@@ -1,11 +1,11 @@
 import {combineReducers} from 'redux'
 import {usersReducer} from './usersReducer'
-import {tasksReducer} from './tasksReducer'
+import { usersTasksReducer} from './usersTasksReducer'
 import { rolesReducer } from './rolesReducer'
 
 
 export const rootReducer = combineReducers({
   users: usersReducer,
-  tasks: tasksReducer,
+  usersTasks: usersTasksReducer,
   roles: rolesReducer
 })

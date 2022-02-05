@@ -4,7 +4,7 @@ import MainPage from "./components/pages/MainPage";
 import Header from "./components/Header/Header";
 import AddTask from "./components/pages/AddTask/AddTask";
 import FindTask from "./components/pages/FindTask/FindTask";
-import Tasks from "./components/pages/Tasks/Tasks";
+import Tasks from "./components/pages/Tasks/TasksPage/Tasks";
 
 
 import AuthUser from './components/ProtectedAuth/AuthUser';
@@ -13,6 +13,11 @@ import Signinform from "./components/SignInForm/SignInForm";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { checkUser } from "./redux/actions/userAC";
+
+import OneTaskPage from "./components/pages/Tasks/OneTaskPage/OneTaskPage";
+
+import Footer from "./components/Footer/Footer";
+
 
 
 function App() {
@@ -30,7 +35,7 @@ function App() {
         <Route path="addtask" element={<AddTask/>}/>
         <Route path="findtask" element={<FindTask/>}/>
         <Route path="tasks" element={<Tasks/>}/>
-
+        <Route path="tasks/userstasks/:id" element={<OneTaskPage/>}/>
         
         <Route path='/signin' element={
               <AuthUser>
@@ -44,6 +49,7 @@ function App() {
             }/>
 
       </Routes>
+      <Footer/>
     </>
   );
 }

@@ -1,13 +1,21 @@
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+// import {getUsersTasks} from '../../redux/actions/userTasksAC'
 
+function Tasks(props) {
 
-
-const Tasks = () =>{
-
-
-
-    return (
-        <h1>Задания</h1>
-    )
+  // const dispatch = useDispatch()
+  // const allTasks = useSelector(state=>state.usersTasks)
+  // console.log(allTasks);
+  // useEffect(()=>{
+  //   dispatch(getUsersTasks())
+  // },[])
+  return (
+    <>
+    {/* {allTasks.map(el => )} */}
+    <div>fff</div>
+    </>
+  );
 }
 
-export default Tasks
+export default Tasks;
