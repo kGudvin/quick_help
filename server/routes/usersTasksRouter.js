@@ -10,5 +10,4 @@ router.route('/')
     res.json({allUsersTasks})
 })
 
-
 module.exports = router;
