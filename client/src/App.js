@@ -17,6 +17,7 @@ import { checkUser } from "./redux/actions/userAC";
 import OneTaskPage from "./components/pages/Tasks/OneTaskPage/OneTaskPage";
 
 import Footer from "./components/Footer/Footer";
+import Account from "./components/pages/Account/Account";
 
 
 
@@ -36,7 +37,7 @@ function App() {
         <Route path="findtask" element={<FindTask/>}/>
         <Route path="tasks" element={<Tasks/>}/>
         <Route path="tasks/userstasks/:id" element={<OneTaskPage/>}/>
-        
+        <Route path="/account" element={<Account />} />
         <Route path='/signin' element={
               <AuthUser>
                 <Signinform/>
