@@ -1,9 +1,9 @@
 import React from "react";
-import ButtonCircle from "../UI/Buttons/ButtonCircle";
-import MainButton from "../UI/Buttons/MainButton";
+import MainButton from "../../UI/Buttons/MainButton";
 import style from "./MainPage.module.css";
-import imgMan from "../img/imgMan.png";
-import Vacancie from "../Vacancie/Vacancie";
+import imgMan from "../../img/imgMan.png";
+import Vacancie from "../../Vacancie/Vacancie";
+
 function MainPage() {
 
 
