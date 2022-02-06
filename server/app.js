@@ -12,7 +12,7 @@ const categoriesRouter = require('./routes/categoriesRouter')
 
 
 const PORT = 3001;
-const app = express();
+const app = express(); 
 
 
 app.use(express.json());

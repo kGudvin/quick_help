@@ -5,23 +5,25 @@ import Header from "./components/Header/Header";
 import AddTask from "./components/pages/AddTask/AddTask";
 import FindTask from "./components/pages/FindTask/FindTask";
 import Tasks from "./components/pages/Tasks/TasksPage/Tasks";
-
+import Protectedauth from './components/ProtectedAuth/ProtectedAuth'
 import AuthUser from "./components/ProtectedAuth/AuthUser";
 import Signupform from "./components/SignUpForm/SignUpForm";
 import Signinform from "./components/SignInForm/SignInForm";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { checkUser } from "./redux/actions/userAC";
+import Footer from "./components/Footer/Footer";
+import Verification from "./components/Verification/Verification";
 
 import OneTaskPage from "./components/pages/Tasks/OneTaskPage/OneTaskPage";
 
-import Footer from "./components/Footer/Footer";
-import Protectedauth from "./components/ProtectedAuth/ProtectedAuth";
-import UserPage from "./components/pages/UserPage/UserPage";
-import Verification from "./components/Verification/Verification";
+// import Footer from "./components/Footer/Footer";
+
+
 
 function App() {
-  const dispatch = useDispatch();
+  const user = useSelector(state=> state.users)
+  const dispatch = useDispatch()
   useEffect(() => {
     dispatch(checkUser());
   }, []);
