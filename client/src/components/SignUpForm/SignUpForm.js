@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useSelector, useDispatch} from 'react-redux'
-import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
+import { Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import { getRoles } from '../../redux/actions/rolesAC';
 import { getUser } from '../../redux/actions/userAC';
 import CustomInput from '../UI/Input/Input'

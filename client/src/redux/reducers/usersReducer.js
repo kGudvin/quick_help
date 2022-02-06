@@ -1,4 +1,4 @@
-import { SET_USER } from "../types/usersTypes";
+import { SET_USER} from "../types/usersTypes";
 
 export const usersReducer = (state = null, action) => {
     const {type, payload} = action;

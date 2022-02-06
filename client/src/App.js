@@ -1,14 +1,13 @@
 import "./App.css";
 import { Route, Routes } from "react-router";
-import MainPage from "./components/pages/MainPage";
+import MainPage from "./components/pages/MainPage/MainPage";
 import Header from "./components/Header/Header";
 import AddTask from "./components/pages/AddTask/AddTask";
 import FindTask from "./components/pages/FindTask/FindTask";
 import Tasks from "./components/pages/Tasks/TasksPage/Tasks";
 
-
-import AuthUser from './components/ProtectedAuth/AuthUser';
-import Signupform from './components/SignUpForm/SignUpForm';
+import AuthUser from "./components/ProtectedAuth/AuthUser";
+import Signupform from "./components/SignUpForm/SignUpForm";
 import Signinform from "./components/SignInForm/SignInForm";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -17,39 +16,73 @@ import { checkUser } from "./redux/actions/userAC";
 import OneTaskPage from "./components/pages/Tasks/OneTaskPage/OneTaskPage";
 
 import Footer from "./components/Footer/Footer";
-
-
+import Protectedauth from "./components/ProtectedAuth/ProtectedAuth";
+import UserPage from "./components/pages/UserPage/UserPage";
+import Verification from "./components/Verification/Verification";
 
 function App() {
-  
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(checkUser())
-  },[])
+    dispatch(checkUser());
+  }, []);
   return (
     <>
-      <Header/>
+      <Header />
       <Routes>
-
         <Route path="/" element={<MainPage />} />
-        <Route path="addtask" element={<AddTask/>}/>
-        <Route path="findtask" element={<FindTask/>}/>
-        <Route path="tasks" element={<Tasks/>}/>
-        <Route path="tasks/userstasks/:id" element={<OneTaskPage/>}/>
-        
-        <Route path='/signin' element={
-              <AuthUser>
-                <Signinform/>
-              </AuthUser>
-            }/>
-            <Route path='/signup' element={
-              <AuthUser>
-                <Signupform/>
-              </AuthUser>
-            }/>
+        <Route
+          path="addtask"
+          element={
+            <Protectedauth>
+              <AddTask />
+            </Protectedauth>
+          }
+        />
+        <Route
+          path="findtask"
+          element={
+            <Protectedauth>
+              <FindTask />
+            </Protectedauth>
+          }
+        />
+        <Route path="tasks" element={<Tasks />} />
+        <Route path="tasks/userstasks/:id" element={<OneTaskPage />} />
 
+        <Route
+          path="/signin"
+          element={
+            <AuthUser>
+              <Signinform />
+            </AuthUser>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <AuthUser>
+              <Signupform />
+            </AuthUser>
+          }
+        />
+        <Route
+          path="/personal"
+          element={
+            <Protectedauth>
+              <UserPage />
+            </Protectedauth>
+          }
+        />
+        <Route
+          path="/quizz"
+          element={
+            <Protectedauth>
+              <Verification />
+            </Protectedauth>
+          }
+        />
       </Routes>
-      <Footer/>
+      <Footer />
     </>
   );
 }
