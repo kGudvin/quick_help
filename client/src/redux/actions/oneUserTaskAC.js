@@ -9,6 +9,7 @@ export const setOneUserTask = (value) => {
 }
 
 export const getOneUserTask = (id) => async (dispatch) => {
+  console.log("G1TAC");
     axios.post(`/userstasks/getonetask/${id}`)
     .then(res => dispatch(setOneUserTask(res.data)))
     .catch(err=> console.log(err))

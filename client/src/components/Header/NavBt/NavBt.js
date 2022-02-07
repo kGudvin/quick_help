@@ -6,15 +6,14 @@ import { useDispatch } from 'react-redux';
 
 
 const NavBt = () => {
-    let user = true;
+  let user = true;
     user = false
     
     
     return(
         <div className={`${style.nav_bt}`}>
-            <div ><Link to="/signIn" className={`${style.nav_link}`}>Sign In</Link></div>
-            
-        <Link to="/signUp"><ButtonCircle>Sign Up</ButtonCircle></Link>
+        <Link to="/signIn"><button className={`${style.btn_circle}`}>Войти</button></Link> 
+        <Link to="/signUp"><button className={`${style.btn_circle}`}>Зарегестрироваться</button></Link>
         </div>
     )
 }

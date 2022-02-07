@@ -12,12 +12,12 @@ import Signinform from "./components/SignInForm/SignInForm";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { checkUser } from "./redux/actions/userAC";
-import Footer from "./components/Footer/Footer";
 import Verification from "./components/Verification/Verification";
-import UserPage from './components/pages/UserPage/UserPage'
+import UserPage from "./components/pages/UserPage/UserPage"
 import OneTaskPage from "./components/pages/Tasks/OneTaskPage/OneTaskPage";
 
-import Account from "./components/pages/Account/Account";
+import Footer from "./components/Footer/Footer";
+import OrganizationPage from "./components/pages/OrganizationPage/OrganizationPage";
 
 
 
@@ -36,7 +36,7 @@ function App() {
         <Route path="findtask" element={<FindTask/>}/>
         <Route path="tasks" element={<Tasks/>}/>
         <Route path="tasks/userstasks/:id" element={<OneTaskPage/>}/>
-        <Route path="/account" element={<Account />} />
+        <Route path="/organization" element={<OrganizationPage/>} />
         <Route path='/signin' element={
               <AuthUser>
                 <Signinform/>

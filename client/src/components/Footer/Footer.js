@@ -13,13 +13,13 @@ function Footer() {
       </div>
       <div className={style.contacts__footer}>
         <div className={style.wrapper__circle}>
-          <i class="fab fa-facebook-f"></i>
+          <i className="fab fa-facebook-f"></i>
         </div>
         <div className={style.wrapper__circle}>
-          <i class="fab fa-twitter"></i>
+          <i className="fab fa-twitter"></i>
         </div>
         <div className={style.wrapper__circle}>
-          <i class="fab fa-instagram"></i>
+          <i className="fab fa-instagram"></i>
         </div>
       </div>
       <div className={style.made_site_info__footer}>©2022QuikHelp</div>
