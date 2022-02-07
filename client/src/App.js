@@ -16,7 +16,6 @@ import { checkUser } from "./redux/actions/userAC";
 import Footer from "./components/Footer/Footer";
 
 import OneTaskPage from "./components/pages/Tasks/OneTaskPage/OneTaskPage";
-
 // import Footer from "./components/Footer/Footer";
 
 
