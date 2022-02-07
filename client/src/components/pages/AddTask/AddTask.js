@@ -1,3 +1,4 @@
+import AddTaskForm from "../../AddTaskForm/AddTaskForm"
 
 
 
@@ -5,7 +6,7 @@ const AddTask = () =>{
 
 
     return (
-        <h1>Добавить задание</h1>
+        <AddTaskForm/>
     )
 }
 

@@ -22,6 +22,6 @@ export const getUsersTasks = () =>  async(dispatch) => {
 
 export const addUserTask = (input) => async(dispatch) => {
   console.log("addUserTaskAC");
-  axios.post('/addnewuserstask', input)
-  .then(res => dispatch(addTask(res.data.newTask)))
+  axios.post('/userstasks/addnewuserstask', input)
+  .then(res => dispatch(addTask(res.data.newUserTask)))
 }
