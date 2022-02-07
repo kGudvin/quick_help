@@ -12,8 +12,7 @@ function OneTaskPage(props) {
   const id = Number(currentUrl.replace('/tasks/userstasks/', ''))
 
   const oneTask = useSelector(state=>state.oneUserTask)
-  console.log(oneTask);
-
+  console.log(oneTask.oneTask);
   useEffect(()=>{
     console.log("useefect");
     (async function(){
@@ -24,13 +23,16 @@ function OneTaskPage(props) {
   },[])
 
   return (
-  <div className='hello'>
-  {oneTask.id}
-  {oneTask.adress }
-  {oneTask.id}
-  {oneTask.id}
-  {oneTask.id}
-
+  <div>
+  <p>{oneTask.oneTask.title}</p>
+  <img src={oneTask.oneTask.image} width="200px"/>
+  <p>{oneTask.oneTask.categorie}</p>
+  <p>{oneTask.oneTask.description}</p>
+  <p>{oneTask.oneTask.date}</p>
+  <p>{oneTask.oneTask.time}</p>
+  <p>{oneTask.oneTask.adress}</p>
+  <p>{oneTask.oneTask.price}</p>
+  <p>{oneTask.oneTask.id}</p>
   </div>
   );
 }
