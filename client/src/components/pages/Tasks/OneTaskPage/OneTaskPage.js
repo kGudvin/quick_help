@@ -1,37 +1,36 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
-import { getOneUserTask } from '../../../../redux/actions/oneUserTaskAC';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
+import { getOneUserTask } from "../../../../redux/actions/oneUserTaskAC";
 
-function OneTaskPage(props) {
+function OneTaskPage() {
 
-  //TODO ВСЕ ВРОДЕ ПРАВИЛЬНО, НО ПОЧЕМУ-ТО НЕ ПЕЧАТАЕТ НИ ОДНОГО ЭЛЕМЕНТА ОТ ПОЛУЧЕННОГО ПОСТА
+  const dispatch = useDispatch();
+  const currentUrl = useLocation().pathname;
+  const id = Number(currentUrl.replace("/tasks/userstasks/", ""));
+  console.log(id);
+  console.log(currentUrl);
+
+  useEffect(() => {
+    dispatch(getOneUserTask(id));
+    console.log("object");
+  }, []);
   
-  const dispatch = useDispatch()
-  const currentUrl = useLocation().pathname
-  const id = Number(currentUrl.replace('/tasks/userstasks/', ''))
-
-  const oneTask = useSelector(state=>state.oneUserTask)
-  console.log(oneTask);
-
-  useEffect(()=>{
-    console.log("useefect");
-    (async function(){
-      console.log("inside");
-      await dispatch(getOneUserTask(id))
-    }())
-
-  },[])
+  const oneTask = useSelector(state => state.oneUserTask);
+  const currentTask = oneTask.oneTask
 
   return (
-  <div className='hello'>
-  {oneTask.id}
-  {oneTask.adress }
-  {oneTask.id}
-  {oneTask.id}
-  {oneTask.id}
-
-  </div>
+    <>
+  {oneTask?.oneTask &&
+    <div>
+      <p>{currentTask.title}</p>
+      <p>{currentTask.date}</p>
+      <img src={currentTask.image} width="200px" />
+      <p>{currentTask.adress}</p>
+      <p>{currentTask.description}</p>
+    </div>
+  }
+  </>
   );
 }
 
