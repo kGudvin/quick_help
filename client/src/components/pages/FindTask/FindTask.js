@@ -1,3 +1,4 @@
+import Ymap from "../Ymap/Ymap"
 
 const FindTask = () => {
 
@@ -5,7 +6,10 @@ const FindTask = () => {
 
 
     return (
+        <>
+        <Ymap/>
         <h1>Найти задание</h1>
+        </>
     )
 }
 

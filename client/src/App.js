@@ -15,7 +15,7 @@ import { checkUser } from "./redux/actions/userAC";
 import Verification from "./components/Verification/Verification";
 import UserPage from "./components/pages/UserPage/UserPage"
 import OneTaskPage from "./components/pages/Tasks/OneTaskPage/OneTaskPage";
-
+import Ymap from "./components/pages/Ymap/Ymap"
 import Footer from "./components/Footer/Footer";
 import OrganizationPage from "./components/pages/OrganizationPage/OrganizationPage";
 
@@ -80,6 +80,7 @@ function App() {
             </Protectedauth>
           }
         />
+        <Route path="/test" element={<Ymap/>} />
       </Routes>
       <Footer />
     </>
