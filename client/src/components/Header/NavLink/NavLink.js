@@ -12,7 +12,7 @@ const NavLink = () => {
 
     return (
         <div className={style.link_list}>
-{/* Это только для юзера!! тут условие */}
+{/* Это только для юзера зарегистированного!! тут условие */}
                 <Link to='findtask' className={style.link}>Найти задания</Link>
                 <Link to='addtask' className={style.link}>Моя подработка</Link>
                 <Link to='addtask' className={style.link}>Создать задание</Link>
@@ -27,7 +27,8 @@ const NavLink = () => {
                 <Link to='#' className={style.link}>Отклики</Link>
                 <Link to='#' className={style.link}>Уведомления</Link>
     */}
-    
+
+    {/* для незареганых - ничего кроме регистрации и авторизаци */}
 
             </div>
     )
