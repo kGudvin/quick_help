@@ -18,7 +18,7 @@ const NavLink = () => {
                 <Link to='addtask' className={style.link}>Создать задание</Link>
                 <Link to='tasks' className={style.link}>Мои задания</Link>
                 <Link to='tasks' className={style.link}>Мои исполнители</Link>
-                <Link to='#' className={style.link}>Уведомления</Link>
+                {/* <Link to='#' className={style.link}>Уведомления</Link> */}
                 
 
 {/* Это для организации тут условие */}

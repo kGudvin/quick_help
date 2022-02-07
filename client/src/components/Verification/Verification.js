@@ -9,7 +9,7 @@ export default function Verification() {
 
   const dispatch = useDispatch();
   const categories = useSelector( state => state.allCategories);
-  const [inputs, setInputs] = useState({name:'', secondname:'', patronymic:'', age:18, about:'', categories:1});
+  const [inputs, setInputs] = useState({name:'', secondname:'', patronymic:'', age:18, about:'', categories:[]});
   
   
   const inputHandler = (e) => {
@@ -26,14 +26,14 @@ const submitHandler = (e) => {
     e.preventDefault();
     console.log(inputs);
     dispatch(updateUser(inputs))
-    setInputs({name:'', secondname:'', patronymic:'', age:18, about:'', categories:1})
+    setInputs({name:'', secondname:'', patronymic:'', age:18, about:'', categories:[]})
 }
   return(
     <Row>
             <Col xs={{size:4, offset:4}}>
                 <Row>
                     <Col style={{textAlign:'center', fontSize:'2em', marginTop:'20px'}}>
-                        <span> Sign Up</span>
+                        <span> Update Info</span>
                     </Col>
                 </Row>
                 <Form onSubmit={submitHandler}>
@@ -90,15 +90,23 @@ const submitHandler = (e) => {
                         />
                     </FormGroup>
                     <FormGroup>
+                        <Label for='name'>Телефон</Label>
+                        <Input
+                            id='phone'
+                            type='phone'
+                            name='phone'
+                            onChange={inputHandler}
+                            value={inputs.phone}
+                        />
+                    </FormGroup>
+                    <FormGroup>
                         <Label for='roles'>Выберите интересующие Вас категории работ</Label>
                         <Input
                             id='categories'
                             type='select'
                             name='categories'
                             onChange={inputHandler}
-                            value={inputs.categories}
 
-                            multiple
                         >
                             {categories.map(el => 
                             <option key={el.id} value={el.id}>{el.title}</option>

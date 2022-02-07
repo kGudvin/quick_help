@@ -60,11 +60,16 @@ router.route('/logout')
 
 router.route('/updateuserinfo')
 .patch( async (req,res) => {
-    const user = {
-        name: "vasya",
-        secondname: "pupkin"
-    }
+  
     console.log(req.body);
+    const {name,secondname,patronymic,age,about,phone,categories } = req.body
+    const user = Users.update(
+      {
+        name,secondname,patronymic,age,about,phone
+      },
+    {where:{id:req.session.user.id}})
+    console.log('rsud', req.session.user.id);
+    console.log(user);
     res.json({user})
 })
 
