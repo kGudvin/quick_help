@@ -17,7 +17,6 @@ import UserPage from "./components/pages/UserPage/UserPage"
 import OneTaskPage from "./components/pages/Tasks/OneTaskPage/OneTaskPage";
 
 import Footer from "./components/Footer/Footer";
-import Account from "./components/pages/Account/Account";
 import OrganizationPage from "./components/pages/OrganizationPage/OrganizationPage";
 
 
@@ -37,7 +36,6 @@ function App() {
         <Route path="findtask" element={<FindTask/>}/>
         <Route path="tasks" element={<Tasks/>}/>
         <Route path="tasks/userstasks/:id" element={<OneTaskPage/>}/>
-        <Route path="/account" element={<Account />} />
         <Route path="/organization" element={<OrganizationPage/>} />
         <Route path='/signin' element={
               <AuthUser>
