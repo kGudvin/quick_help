@@ -1,124 +1,118 @@
-import React,{useState, useEffect} from 'react';
-import { useSelector, useDispatch} from 'react-redux'
-import CustomInput from '../UI/Input/Input';
-import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
-import { getAllCategories } from '../../redux/actions/allCategoriesAC';
-import { updateUser } from '../../redux/actions/userAC';
-
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getAllCategories } from "../../redux/actions/allCategoriesAC";
+import { updateUser } from "../../redux/actions/userAC";
+import style from "./Verification.module.css";
+import img from "../img/imgmansecond.jpg";
 export default function Verification() {
-
   const dispatch = useDispatch();
-  const categories = useSelector( state => state.allCategories);
-  const [inputs, setInputs] = useState({name:'', secondname:'', patronymic:'', age:18, about:'', categories:[]});
-  
-  
+  const categories = useSelector((state) => state.allCategories);
+  const [inputs, setInputs] = useState({
+    name: "",
+    secondname: "",
+    patronymic: "",
+    age: 18,
+    about: "",
+    categories: 1,
+  });
+
   const inputHandler = (e) => {
-    setInputs(prev => ({...prev, [e.target.name]: e.target.value}))
-};
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
   useEffect(() => {
-    dispatch(getAllCategories())
-}, []);
+    dispatch(getAllCategories());
+  }, []);
 
-console.log(inputs);
-
-const submitHandler = (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
-    console.log(inputs);
-    dispatch(updateUser(inputs))
-    setInputs({name:'', secondname:'', patronymic:'', age:18, about:'', categories:[]})
-}
-  return(
-    <Row>
-            <Col xs={{size:4, offset:4}}>
-                <Row>
-                    <Col style={{textAlign:'center', fontSize:'2em', marginTop:'20px'}}>
-                        <span> Update Info</span>
-                    </Col>
-                </Row>
-                <Form onSubmit={submitHandler}>
-                    <FormGroup>
-                        <Label for='name'>Имя</Label>
-                        <Input
-                            id='name'
-                            type='text'
-                            name='name'
-                            onChange={inputHandler}
-                            value={inputs.name}
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for='name'>Фамилия</Label>
-                        <Input
-                            id='secondname'
-                            type='text'
-                            name='secondname'
-                            onChange={inputHandler}
-                            value={inputs.secondname}
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for='name'>Отчество</Label>
-                        <Input
-                            id='patronymic'
-                            type='text'
-                            name='patronymic'
-                            onChange={inputHandler}
-                            value={inputs.patronymic}
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for='name'>Возраст</Label>
-                        <Input
-                            placeholder="Введите число полных лет"
-                            id='age'
-                            type='number'
-                            name='age'
-                            onChange={inputHandler}
-                            value={inputs.age}
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for='name'>О себе</Label>
-                        <Input
-                        placeholder='Расскажите побольше о себе'
-                            id='about'
-                            type='textarea'
-                            name='about'
-                            onChange={inputHandler}
-                            value={inputs.about}
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for='name'>Телефон</Label>
-                        <Input
-                            id='phone'
-                            type='phone'
-                            name='phone'
-                            onChange={inputHandler}
-                            value={inputs.phone}
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for='roles'>Выберите интересующие Вас категории работ</Label>
-                        <Input
-                            id='categories'
-                            type='select'
-                            name='categories'
-                            onChange={inputHandler}
+    dispatch(updateUser(inputs));
+    setInputs({
+      name: "",
+      secondname: "",
+      patronymic: "",
+      age: 18,
+      about: "",
+      categories: 1,
+    });
+  };
 
-                        >
-                            {categories.map(el => 
-                            <option key={el.id} value={el.id}>{el.title}</option>
-                            )}
-                            
-                        </Input>
-                    </FormGroup>
-                    <Button >
-                        Submit
-                    </Button>
-                </Form>
-            </Col>
-        </Row>
-  ) 
+  return (
+    <div className={style.container_form__user_info}>
+      <div className={style.container_form__user}>
+        <form className={style.form__user_info} onSubmit={submitHandler}>
+          <label htmlFor="name">Имя :</label>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            onChange={inputHandler}
+            value={inputs.name}
+          />
+          <label htmlFor="secondname">Фамилия : </label>
+          <input
+            id="secondname"
+            type="text"
+            name="secondname"
+            onChange={inputHandler}
+            value={inputs.secondname}
+          />
+          <label htmlFor="patronymic">Очество : </label>
+          <input
+            id="patronymic"
+            type="text"
+            name="patronymic"
+            onChange={inputHandler}
+            value={inputs.patronymic}
+          />
+          <label htmlFor="age"> Возраст :</label>
+          <input
+            id="age"
+            type="number"
+            name="age"
+            onChange={inputHandler}
+            value={inputs.age}
+          />
+          <label htmlFor="phone"> Телефон :</label>
+          <input
+            id="phone"
+            type="phone"
+            name="phone"
+            onChange={inputHandler}
+            value={inputs.phone}
+          />
+          <label htmlFor="about">О себе :</label>
+          <input
+            className={style.form__textarea}
+            placeholder="Расскажите о себе и своем опыте работы"
+            id="about"
+            type="textarea"
+            name="about"
+            onChange={inputHandler}
+            value={inputs.about}
+          />
+          <label htmlFor="categories"> Выберете кагорию :</label>
+          <select className={style.new_select_style_wpandyou}
+            id="categories"
+            type="select"
+            name="categories"
+            onChange={inputHandler}
+          >
+            {categories &&
+              categories.map((el) => (
+                <option className={style.options__form_btn} key={el.id} value={el.id}>
+                  {el.title}
+                </option>
+              ))}
+          </select>
+
+          <button className={style.container__form_btn}>Сохранить</button>
+        </form>
+      </div>
+      <div className={style.illustration___form__user}>
+        <h3>Обновитe информацию</h3>
+        <img src={img} alt="back img" />
+      </div>
+    </div>
+  );
 }

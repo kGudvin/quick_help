@@ -41,7 +41,7 @@ function Ymap() {
                 <h3>адрес:${el.adress}</h3>
                 <h3>дата:${el.date}</h3>
                 <h3>цена:${el.price}</h3>
-                <a href="/tasks/usertasks/:${el.id}"><button>Перейти</button><a>`
+                <a href="/tasks/userstasks/${el.id}"><button>Перейти</button><a>`
             }, {
                 preset: 'islands#icon',
                 iconColor: '#0095b6'
