@@ -1,26 +1,37 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {getUsersTasks} from '../../../../redux/actions/userTasksAC'
 import { useLocation } from 'react-router-dom';
+import { getOneUserTask } from '../../../../redux/actions/oneUserTaskAC';
 
 function OneTaskPage(props) {
+
+  //TODO ВСЕ ВРОДЕ ПРАВИЛЬНО, НО ПОЧЕМУ-ТО НЕ ПЕЧАТАЕТ НИ ОДНОГО ЭЛЕМЕНТА ОТ ПОЛУЧЕННОГО ПОСТА
+  
   const dispatch = useDispatch()
   const currentUrl = useLocation().pathname
   const id = Number(currentUrl.replace('/tasks/userstasks/', ''))
-  const allTasks = useSelector(state=> state.usersTasks)
 
-  const currentTask = allTasks.filter(el => el.id === id)[0]
-  console.log(currentTask);
+  const oneTask = useSelector(state=>state.oneUserTask)
+  console.log(oneTask);
 
   useEffect(()=>{
+    console.log("useefect");
     (async function(){
-      await dispatch(getUsersTasks())
+      console.log("inside");
+      await dispatch(getOneUserTask(id))
     }())
+
   },[])
+
   return (
-  <>
-  {/* <p>{currentTask.id}</p> */}
-  </>
+  <div className='hello'>
+  {oneTask.id}
+  {oneTask.adress }
+  {oneTask.id}
+  {oneTask.id}
+  {oneTask.id}
+
+  </div>
   );
 }
 

@@ -4,7 +4,7 @@ import {GET_ALL_TASKS, ADD_NEW_TASK, DEL_TASK, GET_ONE_TASK} from '../types/user
 export const usersTasksReducer = (state = [], action)=>{
     const {type, payload} = action;
     switch (type) {
-      case GET_ALL_TASKS:
+        case GET_ALL_TASKS:
             return [...payload];
         case ADD_NEW_TASK:
             return [...state, payload]

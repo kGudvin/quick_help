@@ -19,6 +19,7 @@ export const signInUser = ( input ) => async ( dispatch ) => {
 }
 
 export const userLogout = () => async (dispatch) => {
+  console.log("first");
   await axios.post('/user/logout')
   dispatch(setUser(null))
 }
@@ -34,4 +35,9 @@ export const checkUser = () => async (dispatch) => {
     dispatch(setUser(null))
     
   }
+}
+export const updateUser = (input) => async(dispatch) => {
+  console.log("updateUserAC");
+  const res = await axios.patch('/user/updateuserinfo', input)
+  dispatch(setUser(res.data.user))
 }

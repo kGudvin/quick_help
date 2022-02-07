@@ -1,5 +1,8 @@
 export const initState ={
   users: null,
+  roles:[],
   usersTasks:[],
-  roles:[]
+  oneUserTask: {},
+  currentUserTasks:[],
+  allCategories:[]
 }
