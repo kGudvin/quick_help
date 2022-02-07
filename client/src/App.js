@@ -12,17 +12,13 @@ import Signinform from "./components/SignInForm/SignInForm";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { checkUser } from "./redux/actions/userAC";
-import Footer from "./components/Footer/Footer";
 import Verification from "./components/Verification/Verification";
-
+import UserPage from "./components/pages/UserPage/UserPage"
 import OneTaskPage from "./components/pages/Tasks/OneTaskPage/OneTaskPage";
 
-<<<<<<< HEAD
 import Footer from "./components/Footer/Footer";
 import Account from "./components/pages/Account/Account";
-=======
-// import Footer from "./components/Footer/Footer";
->>>>>>> 8bf10e0ae3a2ca87ca889bb7e1123d8a80ecb108
+import OrganizationPage from "./components/pages/OrganizationPage/OrganizationPage";
 
 
 
@@ -37,12 +33,12 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<MainPage />} />
-<<<<<<< HEAD
         <Route path="addtask" element={<AddTask/>}/>
         <Route path="findtask" element={<FindTask/>}/>
         <Route path="tasks" element={<Tasks/>}/>
         <Route path="tasks/userstasks/:id" element={<OneTaskPage/>}/>
         <Route path="/account" element={<Account />} />
+        <Route path="/organization" element={<OrganizationPage/>} />
         <Route path='/signin' element={
               <AuthUser>
                 <Signinform/>
@@ -53,26 +49,6 @@ function App() {
                 <Signupform/>
               </AuthUser>
             }/>
-=======
-        <Route
-          path="addtask"
-          element={
-            <Protectedauth>
-              <AddTask />
-            </Protectedauth>
-          }
-        />
-        <Route
-          path="findtask"
-          element={
-            <Protectedauth>
-              <FindTask />
-            </Protectedauth>
-          }
-        />
-        <Route path="tasks" element={<Tasks />} />
-        <Route path="tasks/userstasks/:id" element={<OneTaskPage />} />
->>>>>>> 8bf10e0ae3a2ca87ca889bb7e1123d8a80ecb108
 
         <Route
           path="/signin"
