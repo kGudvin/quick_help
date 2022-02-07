@@ -31,17 +31,17 @@ function Ymap() {
         }) 
         console.log(tasks);
         tasks.map((el)=>{
-            const geocoder = ymaps.geocode(el.adress);
+            const geocoder = ymaps.geocode(el.address);
             geocoder.then((res)=>{
             const coordinates = res.geoObjects.get(0).geometry.getCoordinates();
             
             myMap.geoObjects
             .add(new ymaps.Placemark(coordinates, {
                 balloonContent: `<h2>Организация:${el.title}</h2>
-                <h3>адрес:${el.adress}</h3>
+                <h3>адрес:${el.address}</h3>
                 <h3>дата:${el.date}</h3>
                 <h3>цена:${el.price}</h3>
-                <a href="/tasks/usertasks/:${el.id}"><button>Перейти</button><a>`
+                <a href="/tasks/userstasks/${el.id}"><button>Перейти</button><a>`
             }, {
                 preset: 'islands#icon',
                 iconColor: '#0095b6'

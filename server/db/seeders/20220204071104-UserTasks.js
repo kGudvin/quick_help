@@ -11,7 +11,7 @@ module.exports = {
     for (let index = 0; index < 5; index++) {
       arr.push({
         title: faker.name.jobArea(),
-        adress: adressArr[index],
+        address: adressArr[index],
         time: (time+index).toString(),
         date: `${date.getDate()} . ${date.getMonth()}. ${date.getFullYear()}`,
         price: (Math.random() * (10000 - 2000) + 2000),
