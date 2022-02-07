@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   UsersTasks.init({
     title: DataTypes.STRING,
-    adress: DataTypes.STRING,
+    address: DataTypes.STRING,
     time: DataTypes.STRING,
     date: DataTypes.STRING,
     price: DataTypes.INTEGER,
