@@ -21,12 +21,12 @@ function MainPage() {
               </div>
             </div>
             <div className={style.wrapper__btns_main}>
-              <MainButton className={style.btns__main}>
+              <button className={style.btns__main}>
                 Найти подработку
-              </MainButton>
-              <MainButton className={style.btns__main}>
+              </button>
+              <button className={style.btns__main}>
                 Найти сотрудника
-              </MainButton>
+              </button>
             </div>
           </div>
         </div>
@@ -80,7 +80,7 @@ function MainPage() {
      <Vacancie/>
      <Vacancie/>
      </div>
-     <MainButton>Показать еще</MainButton>
+     <button className={style.btns__main}>Показать еще</button>
       </div>
     
     </>

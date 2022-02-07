@@ -25,7 +25,7 @@ function TaskItem({id, title, adress, time, date, price, description, image, cat
           <div className={style.header__vacantie}>{title}</div>
           <div className={style.subheader__vacantie}>Категория:{categorie}</div>
           <div className={style.subheader__vacantie}>Адрес:{adress}</div>
-          <div className={style.subheader__vacantie}>Начать: {time}</div>
+          <div className={style.subheader__vacantie}>Начать: {date}</div>
           <div className={style.subheader__vacantie}>Подработка займет: {time}</div>
           <div className={style.subheader__vacantie}>Оплата задания: {price}</div>
           <div className={style.descr__vacantie}>Описание:
