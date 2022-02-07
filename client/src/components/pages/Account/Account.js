@@ -19,6 +19,7 @@ function Account() {
           <button className={style.choose_photo_btn__account} type="file">Загрузить фото</button>
           </div>
           <div className={style.rating__account}>
+            <div>Мой рейтинг:</div>
             <Rating />
           </div>
         </div>

@@ -1,5 +1,5 @@
 .input{
-    /* width: 150px; */
+    min-width: 250px;
     height: 30px;
     left: 1140px;
     border: 1px solid #F53855;

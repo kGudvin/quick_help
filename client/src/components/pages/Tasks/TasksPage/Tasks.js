@@ -7,7 +7,7 @@ function Tasks(props) {
 
   const dispatch = useDispatch()
   const allTasks = useSelector(state=>state.usersTasks)
-  console.log(allTasks);
+  
   useEffect(()=>{
     dispatch(getUsersTasks())
   },[])

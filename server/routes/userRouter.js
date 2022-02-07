@@ -12,14 +12,14 @@ res.sendStatus(401);
 
 router.route('/signup')
 .post(async (req, res) => {
-  console.log('------------->',req.body);
+    console.log('------------->',req.body);
     const {email, name, password} = req.body;
     if(email && name && password){
         const cryptPass = await bcrypt.hash(password, Number(process.env.SALT_ROUND))
         try{
-          const currentUser =  await Users.create({...req.body, password:cryptPass})
-          req.session.user = {id:currentUser.id, name:currentUser.name, role_id: currentUser.role_id}
-          return res.json({user:{id:currentUser.id, name:currentUser.name, role_id: currentUser.role_id}})
+            const currentUser =  await Users.create({...req.body, password:cryptPass})
+            req.session.user = {id:currentUser.id, name:currentUser.name, role_id: currentUser.role_id}
+            return res.json({user:{id:currentUser.id, name:currentUser.name, role_id: currentUser.role_id}})
         }catch(err){
             console.log(err)
             return res.sendStatus(500)
@@ -58,6 +58,15 @@ router.route('/logout')
     res.clearCookie('sid').sendStatus(200)
 })
 
+router.route('/updateuserinfo')
+.patch( async (req,res) => {
+    const user = {
+        name: "vasya",
+        secondname: "pupkin"
+    }
+    console.log(req.body);
+    res.json({user})
+})
 
 
 module.exports = router;

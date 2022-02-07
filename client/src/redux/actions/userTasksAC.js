@@ -14,4 +14,3 @@ export const getUsersTasks = () =>  async(dispatch) => {
     .catch(err => console.log(err))
 }
 
-
