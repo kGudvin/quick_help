@@ -12,7 +12,7 @@ res.sendStatus(401);
 
 router.route('/signup')
 .post(async (req, res) => {
-    console.log('------------->',req.body);
+  
     const {email, name, password} = req.body;
     if(email && name && password){
         const cryptPass = await bcrypt.hash(password, Number(process.env.SALT_ROUND))
@@ -21,7 +21,7 @@ router.route('/signup')
             req.session.user = {id:currentUser.id, name:currentUser.name, role_id: currentUser.role_id}
             return res.json({user:{id:currentUser.id, name:currentUser.name, role_id: currentUser.role_id}})
         }catch(err){
-            console.log(err)
+      
             return res.sendStatus(500)
         }
     } else {
@@ -42,7 +42,7 @@ router.route('/signin')
                 return res.sendStatus(500)
             }
         }catch(err){
-            console.log(err)
+          
             return res.sendStatus(500)
         }
     }else{
@@ -58,18 +58,25 @@ router.route('/logout')
     res.clearCookie('sid').sendStatus(200)
 })
 
+//получение однного юзера
+router.route('/userpage/:id')
+.get((req, res) => {
+  console.log('baaaaaaack=>>>>>>>>>>>>>>>>>>>>>id',req.params.id);
+  const id = req.params.id
+  const currentUser = Users.findOne({where:{id}})
+  res.json({currentUser})
+})
+
+
 router.route('/updateuserinfo')
 .patch( async (req,res) => {
-  
-    console.log(req.body);
+
     const {name,secondname,patronymic,age,about,phone,categories } = req.body
     const user = Users.update(
       {
         name,secondname,patronymic,age,about,phone
       },
     {where:{id:req.session.user.id}})
-    console.log('rsud', req.session.user.id);
-    console.log(user);
     res.json({user})
 })
 

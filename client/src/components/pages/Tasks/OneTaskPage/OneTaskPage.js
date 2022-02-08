@@ -8,12 +8,11 @@ function OneTaskPage() {
   const dispatch = useDispatch();
   const currentUrl = useLocation().pathname;
   const id = Number(currentUrl.replace("/tasks/userstasks/", ""));
-  console.log(id);
-  console.log(currentUrl);
+ 
 
   useEffect(() => {
     dispatch(getOneUserTask(id));
-    console.log("object");
+   
   }, []);
   
   const oneTask = useSelector(state => state.oneUserTask);
