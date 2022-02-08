@@ -19,6 +19,7 @@ import Ymap from "./components/pages/Ymap/Ymap"
 import Footer from "./components/Footer/Footer";
 import OrganizationPage from "./components/pages/OrganizationPage/OrganizationPage";
 import AddTaskForm from "./components/AddTaskForm/AddTaskForm";
+import MyTasks from "./components/pages/Tasks/MyTasks/MyTasks";
 
 
 
@@ -37,7 +38,7 @@ function App() {
               <AddTaskForm />
             </Protectedauth>}/>
         <Route path="findtask" element={<FindTask/>}/>
-        <Route path="tasks" element={<Tasks/>}/>
+        <Route path="tasks" element={<MyTasks/>}/>
         <Route path="tasks/userstasks/:id" element={<OneTaskPage/>}/>
         <Route path="/organization" element={<OrganizationPage/>} />
         <Route path='/signin' element={

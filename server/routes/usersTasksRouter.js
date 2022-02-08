@@ -1,15 +1,16 @@
 const router = require('express').Router();
-const { UsersTasks } = require('../db/models')
+const {Users, UsersTasks, Categories, UsersToUserTasks} = require('../db/models')
 
 
 
+//  отдает все имеющиеся таски
 router.get('/', async(req, res) => {
     const allUsersTasks = await UsersTasks.findAll();
     console.log('---------------------------------------------------',allUsersTasks);
     res.json({allUsersTasks})
 })
 
-
+// находит конкретную таску по id
 router.post('/getonetask/:id', async(req,res)=> {
     const id = req.params.id
     console.log(id, typeof(id));
@@ -17,13 +18,49 @@ router.post('/getonetask/:id', async(req,res)=> {
     console.log(oneTask);
     res.json({oneTask})
 })
-module.exports = router;
 
+//добавляет юзеру новую таску
 router.post('/addnewuserstask', async(req,res) => {
-    // const {title,address,time,date,price,description,image,categories} = req.body
-    const newUserTask = await UsersTasks.create(req.body)
-    const allPosts = await UsersTasks.findAll()
-    console.log('+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++',allPosts);
-    console.log(allPosts);
+    const {title,address,time,date,price,description,image,categories} = req.body
+    console.log(categories);
+    const categoriesId = Number(categories)
+    const reqCategorie =  await Categories.findOne({where:{id:categoriesId}})
+    const pasteToDB = {
+      ...req.body, categorie:reqCategorie.title
+    }
+    
+    const newUserTask = await UsersTasks.create(pasteToDB)
+    const currentUserInDB = await Users.findOne({where:{id:req.session.user.id}})
+    console.log('currentUserInDB.id', currentUserInDB.id);
+    console.log(newUserTask.id);
+    try {
+      const uu = await UsersToUserTasks.create({ownerId: currentUserInDB.id, taskId: newUserTask.id, status: false, performerId: null})
+      
+      console.log(uu);
+    } catch (error) {
+      console.log(error);
+    }
     res.json(newUserTask)
 })
+
+
+//позволяет юзеру взяться за таску
+router.post('/setonetasktouser', async(req,res)=> {
+  const taskkId = req.body.taskId
+  const currentUserInDB = await Users.findOne({where:{id:req.session.user.id}})
+  console.log('currentUserInDBcurrentUserInDBcurrentUserInDBcurrentUserInDBcurrentUserInDB',currentUserInDB);
+  const result = await UsersToUserTasks.update({performerId:currentUserInDB.id},{where:{taskId:taskkId}})
+  if(result[0]===1){
+    resForFront = await UsersTasks.findOne({where: {id:taskkId}})
+  }
+  console.log(resForFront);
+  res.json(resForFront)
+})
+
+
+
+
+
+
+
+module.exports = router;

@@ -22,7 +22,7 @@ const submitHandler = (e) => {
     dispatch(addUserTask(inputs))
     setInputs({title:'', address:'', time:'', date:'', price:0, description:'', image:'', categories:1})
   }
-  
+  console.log(inputs);
   useEffect(() => {
     dispatch(getAllCategories())
   }, []);
