@@ -12,9 +12,9 @@ export default function UserPage() {
 const currentUser = useSelector(state => state.users)
 const dispatch = useDispatch()
 const navigate = useNavigate()
-// const id = useParams()
-const currentUrl = useLocation().pathname;
-const id = Number(currentUrl.replace("/tasks/userstasks/", ""));
+const id = useParams()
+// const currentUrl = useLocation().pathname;
+// const id = Number(currentUrl.replace("/tasks/userstasks/", ""));
  
   const changePathtoQuizz = () =>{
     navigate('/quizz')

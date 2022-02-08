@@ -61,8 +61,8 @@ router.route('/logout')
 //получение однного юзера
 router.route('/userpage/:id')
 .get((req, res) => {
-  console.log('baaaaaaack=>>>>>>>>>>>>>>>>>>>>>id',req.params.id);
-  const id = req.params.id
+  const id = req.session.user.id
+  console.log('baaaaaaack=>>>>>>>>>>>>>>>>>>>>>id',id);
   const currentUser = Users.findOne({where:{id}})
   res.json({currentUser})
 })
