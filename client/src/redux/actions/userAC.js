@@ -7,6 +7,12 @@ export const setUser = (value) => {
       payload: value
   }
 }
+export const getCurrentUser = (id)=> async (dispatch)=>{
+  const res = await axios(`/user/userpage/:${id}`)
+  console.log('curreeeeeennnnnntttuuuuseeeeerrrr back',res.data.currentUser);
+    dispatch(setUser(res.data.currentUser))
+}
+
 
 export const getUser = (input) => async (dispatch) => {
     const res = await axios.post('/user/signup', input)
@@ -19,7 +25,6 @@ export const signInUser = ( input ) => async ( dispatch ) => {
 }
 
 export const userLogout = () => async (dispatch) => {
-  console.log("first");
   await axios.post('/user/logout')
   dispatch(setUser(null))
 }

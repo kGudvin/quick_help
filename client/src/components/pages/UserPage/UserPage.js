@@ -1,21 +1,40 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Rating from "../../UI/Rating/Rating";
 import style from "./UserPage.module.css";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getCurrentUser } from "../../../redux/actions/userAC";
+
+
 export default function UserPage() {
+const currentUser = useSelector(state => state.users)
+const dispatch = useDispatch()
+const navigate = useNavigate()
+// const id = useParams()
+const currentUrl = useLocation().pathname;
+const id = Number(currentUrl.replace("/tasks/userstasks/", ""));
+ 
+  const changePathtoQuizz = () =>{
+    navigate('/quizz')
+  }
+useEffect(()=>{
+
+dispatch(getCurrentUser(id))
+console.log('id useraaaaaaaaaaaaaaaaaa',id);
+},[])
   return (
     <div className={style.container__account}>
       {/* //условие если не заполнены поля в бд у юзера показываем кнопку и сообщение */}
       <div className={style.notification__infoUser}>
         Заполните профиль, чтобы Вас быстрее одобрили при выборе исполнителя?
         <div>
-          <Link to="/quizz">
-            <button className={style.notification__infoUser_btn}>Заполнить информацию</button>
-          </Link>
+            <button className={style.notification__infoUser_btn} onClick={changePathtoQuizz}>Заполнить информацию</button>
         </div>
       </div>
       <div className={style.wrapper__account}>
-        <h3>Привет, User</h3>
+        <h3>Привет, {currentUser.name}</h3>
 
         <div className={style.header_wrapper__account}>
           <div className={style.wrapper_photo__account}>
@@ -57,7 +76,8 @@ export default function UserPage() {
           </div>
         </div>
         <div className={style.btn__account}>
-          <button className={style.notification__infoUser_btn}>Редактировать</button>
+          <button className={style.notification__infoUser_btn} onClick={changePathtoQuizz} 
+          >Редактировать</button>
         </div>
       </div>
     </div>
