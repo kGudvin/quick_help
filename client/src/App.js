@@ -38,7 +38,8 @@ function App() {
               <AddTaskForm />
             </Protectedauth>}/>
         <Route path="findtask" element={<FindTask/>}/>
-        <Route path="tasks" element={<MyTasks/>}/>
+        <Route path="/mytasks" element={<MyTasks/>}/>
+        <Route path="/tasks" element={<Tasks/>}/>
         <Route path="tasks/userstasks/:id" element={<OneTaskPage/>}/>
         <Route path="/organization" element={<OrganizationPage/>} />
         <Route path='/signin' element={

@@ -11,8 +11,15 @@ function TaskItem({id, title, adress, time, date, price, description, image, cat
 
 const allTasks = useSelector(state=>state.currentUserTasks)
 
-const flag = allTasks.filter(el => el.id === id)
-console.log(flag);
+const array = allTasks.map(el => el.id)
+console.log(array, id, array.indexOf(id));
+let flag
+if(array.indexOf(id) >= 0){
+  flag = true
+}else{
+  flag = false
+}
+
 const dispatch = useDispatch()
   return (
     <div className={style.wrapper__vacantie}>
@@ -40,7 +47,8 @@ const dispatch = useDispatch()
           </div>
           <div >
             {/* <a className={style.link__vacantie}href="#"> Подробнее...</a> */}
-            <button onClick={()=>dispatch(takeOnTheTask(id))}>Откликнуться на вакансию</button>
+            {!flag?<button onClick={()=>dispatch(takeOnTheTask(id))}>Откликнуться на вакансию</button>: "Вы откликнулись"}
+            {/* <button onClick={()=>dispatch(takeOnTheTask(id))}>Откликнуться на вакансию</button> */}
             <button>Написать работодателю</button>
 
           </div>
