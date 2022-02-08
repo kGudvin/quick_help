@@ -68,7 +68,7 @@ function App() {
           }
         />
         <Route
-          path="/user/userpage/:id"
+          path="/user/userpage/"
           element={
             <Protectedauth>
               <UserPage />

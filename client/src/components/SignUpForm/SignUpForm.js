@@ -24,7 +24,6 @@ const Signupform = () => {
         dispatch(getRoles())
         // navigate("/")
     }, []);
-console.log(inputs);
     const submitHandler = (e) => {
         e.preventDefault();
         console.log(inputs);

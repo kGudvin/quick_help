@@ -26,7 +26,7 @@ const Avatar = () => {
       </button>
 
       {user && (
-        <Link to="/personal" className={`${style.nav_link}`}>
+        <Link to="/user/userpage/" className={`${style.nav_link}`}>
           <div className={`${style.avatar}`}>
             <img src={default_avatar} height={43} className={`${style.icon}`} />
           </div>

@@ -60,9 +60,10 @@ router.route('/logout')
 
 //получение однного юзера
 router.route('/userpage/')
-.get((req, res) => {
-  const id = req.params.id
-  const currentUser = Users.findOne({where:{id:req.session.user.id}})
+.get(async (req, res) => {
+  const id = req.session.user.id
+  const currentUser = await Users.findOne({where:{id}})
+  console.log({currentUser});
   res.json({currentUser})
 })
 

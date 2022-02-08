@@ -7,8 +7,8 @@ export const setUser = (value) => {
       payload: value
   }
 }
-export const getCurrentUser = (id)=> async (dispatch)=>{
-  const res = await axios(`/user/userpage/:${id}`)
+export const getCurrentUser = ()=> async (dispatch)=>{
+  const res = await axios(`/user/userpage/`)
   console.log('curreeeeeennnnnntttuuuuseeeeerrrr back',res.data.currentUser);
     dispatch(setUser(res.data.currentUser))
 }
