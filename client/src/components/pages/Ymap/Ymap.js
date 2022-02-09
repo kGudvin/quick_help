@@ -88,4 +88,4 @@ function Ymap({input}) {
   )
 }
 
-export default React.memo(Ymap);
+export default Ymap;

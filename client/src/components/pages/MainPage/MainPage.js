@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MainButton from "../../UI/Buttons/MainButton";
 import style from "./MainPage.module.css";
 import imgMan from "../../img/imgMan.png";
 import Vacancie from "../../Vacancie/Vacancie";
+import Tasks from "../Tasks/TasksPage/Tasks";
+import { useDispatch } from "react-redux";
+import { getUsersTasks } from "../../../redux/actions/userTasksAC";
+import { Link } from "react-router-dom";
 
 function MainPage() {
+const [lim, setLim] = useState(100)
+const [price, setPrice] = useState(0)
+const dispatch = useDispatch()
+useEffect(()=>{
+  dispatch(getUsersTasks(lim))
+  
+}, [lim])
+useEffect(() => {
+  // dispatch(getUsersTasks(100))
+  setTimeout(()=>{setPrice(1)}, 500)
+  
+}, []);
 
 
   return (
@@ -73,14 +89,16 @@ function MainPage() {
      
       <h3 className={style.header__main}>Вакансии и услуги</h3>
      {/* тут мапаемcя по всем вакансиям и отражаем 5 */}
-     <div className={style.vacatcies__taskBlock}>
+     {/* <div className={style.vacatcies__taskBlock}>
      <Vacancie/>
      <Vacancie/>
      <Vacancie/>
      <Vacancie/>
      <Vacancie/>
-     </div>
-     <button className={style.btns__main}>Показать еще</button>
+     </div> */}
+     <Tasks lim={lim} price={price}/>
+     <Link to="/findtask">
+     <button className={style.btns__main} >Показать еще</button></Link>
       </div>
     
     </>

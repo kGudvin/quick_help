@@ -1,5 +1,6 @@
 import style from "./style.module.css";
 import default_avatar from "./default_avatar.png";
+
 import { Link, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { userLogout } from "../../../redux/actions/userAC";

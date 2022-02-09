@@ -112,7 +112,7 @@ export default function UserPage() {
                     </button>
                   </div>
                 </form> */}
-              <form
+                {!currentUser.image && <form
                 
                 id="uploadForm"
                 // action="http://localhost:3001/user/upload"
@@ -122,10 +122,12 @@ export default function UserPage() {
               >
                 <input type="file" name="sampleFile" ref={upload}/>
                 <input type="submit" value="Upload!" />
-              </form>
+              </form>}
+              
 
               <div>
                 {/* {currentUser.image.length === 1 && ( */}
+                
                   <>
                     <img
                       // src={`http://localhost:3001/uploads/${currentUser.image[0]?.path}`}

@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router";
 import MainPage from "./components/pages/MainPage/MainPage";
 import Header from "./components/Header/Header";
 import AddTask from "./components/pages/AddTask/AddTask";
-import FindTask from "./components/pages/FindTask/FindTask";
+import FindTask from "./components/pages/FindTask/FindTask"; 
 import Tasks from "./components/pages/Tasks/TasksPage/Tasks";
 import Protectedauth from './components/ProtectedAuth/ProtectedAuth'
 import AuthUser from "./components/ProtectedAuth/AuthUser";

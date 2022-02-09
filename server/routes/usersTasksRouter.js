@@ -4,25 +4,26 @@ const {Users, UsersTasks, Categories, UsersToUserTasks} = require('../db/models'
 
 
 //  отдает все имеющиеся таски
-router.get('/', async(req, res) => {
-    const allUsersTasks = await UsersTasks.findAll();
-    console.log('---------------------------------------------------',allUsersTasks);
+router.post('/:lim', async(req, res) => {
+    let lim = Number(req.params.lim)
+    const allUsersTasks = await UsersTasks.findAll({limit:lim});
+    console.log('---------------------------------------------------',req.params);
     res.json({allUsersTasks})
 })
 
 // находит конкретную таску по id
 router.post('/getonetask/:id', async(req,res)=> {
     const id = req.params.id
-    console.log(id, typeof(id));
+    // console.log(id, typeof(id));
     const oneTask = await UsersTasks.findOne({where:{id}})
-    console.log(oneTask);
+    // console.log(oneTask);
     res.json({oneTask})
 })
 
 //добавляет юзеру новую таску
 router.post('/addnewuserstask', async(req,res) => {
     const {title,address,time,date,price,description,image,categories} = req.body
-    console.log(categories);
+    // console.log(categories);
     const categoriesId = Number(categories)
     const reqCategorie =  await Categories.findOne({where:{id:categoriesId}})
     const pasteToDB = {
@@ -36,7 +37,7 @@ router.post('/addnewuserstask', async(req,res) => {
     try {
       const uu = await UsersToUserTasks.create({ownerId: currentUserInDB.id, taskId: newUserTask.id, status: false, performerId: null})
       
-      console.log(uu);
+      // console.log(uu);
     } catch (error) {
       console.log(error);
     }

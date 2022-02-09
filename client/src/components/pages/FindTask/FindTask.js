@@ -4,8 +4,11 @@ import style from './findtasks.module.css'
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getAllCategories } from "../../../redux/actions/allCategoriesAC"
+import { getUsersTasks } from "../../../redux/actions/userTasksAC"
 
 const FindTask = () => {
+  const [lim, setLim] = useState(100)
+
   const [input, setInput] = useState('')
   const [cat, setCat] = useState('')
   const [price, setPrice] = useState()
@@ -26,7 +29,9 @@ const FindTask = () => {
    const dispatch = useDispatch()
   const categories = useSelector(state => state.allCategories);
     useEffect(() => {
-      dispatch(getAllCategories())
+      // dispatch(getUsersTasks(100))
+      setTimeout(()=>{setPrice(1)}, 700)
+      
     }, []);
 
 
@@ -40,7 +45,8 @@ const FindTask = () => {
         <input  type="number" onChange={(e) => handlePrice(e)} className={`${style.input}`} placeholder="цена от-"/>
 
       </div>
-      <Tasks input={input} price={price} cat={cat} />
+      <Tasks input={input} price={price} cat={cat} lim={lim} />
+      {/* <button className={style.btns__main} onClick={()=>setLim(prev=>prev+3)}>Показать еще</button> */}
     </>
   )
 }

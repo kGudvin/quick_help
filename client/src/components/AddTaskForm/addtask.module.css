@@ -1,0 +1,126 @@
+.container_form__user_info {
+  padding: 50px 0 50px 0;
+  min-height: 600px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.container_form__user {
+  width: 300px;
+}
+
+.form__user_info {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form__user_info label{
+  margin: 5px;
+}
+input {
+  min-width: 300px;
+  height: 30px;
+  border: 1px solid #f53855;
+  box-sizing: border-box;
+  border-radius: 50px;
+  margin: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: rgb(255, 255, 255);
+  padding-left: 7px;
+}
+input:focus {
+  outline: none;
+}
+input:hover {
+  background-color: #ffecec;
+}
+.form__textarea {
+  min-height: 50px;
+}
+.illustration___form__user {
+  width: 50%;
+}
+.illustration___form__user img {
+  width: 90%;
+}
+.container__form_btn {
+  min-width: 150px;
+  padding: 4px;
+  height: 45px;
+  border: 1px solid #f53855;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #f53855;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: rgb(255, 255, 255);
+  margin-top: 30px;
+}
+
+.container__form_btn:hover {
+  background-color: #f53855;
+  box-shadow: 0px 4px 4px rgba(245, 56, 56, 0.25);
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+}
+.new_select_style_wpandyou {
+  border-radius: 70px;
+  border: 1px solid #f53855;
+  background: transparent;
+  height: 34px;
+  padding: 4px;
+  font-size: 14px;
+  line-height: 1;
+  width: 268px;
+  min-width: 300px;
+  height: 30px;
+}
+.new_select_style_wpandyou:hover{
+  background-color: #ffecec;
+}
+.new_select_style_wpandyou:focus,.new_select_style_wpandyou:active, .new_select_style_wpandyou:checked{
+  border: 3px solid #f53855;
+}
+.options__form_btn{
+  background-color: #ffecec;
+}
+.container_form_input{
+  min-width: 250px;
+    height: 30px;
+    /* left: 1140px; */
+    border: 1px solid #F53855;
+    box-sizing: border-box;
+    border-radius: 50px;
+    margin: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: rgb(255, 255, 255);
+    padding-left: 5px;
+
+
+}
+.container_form_input:focus{
+  outline: none;
+}
+
+.btn_circle{
+  margin: 10px;
+  min-width: 150px;
+  padding: 4px;
+  height: 45px;
+  border: 1px solid #F53855;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #F53855;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: rgb(255, 255, 255);
+}
+
+.btn_circle:hover{
+  background-color: #F53855;
+  box-shadow: 0px 4px 4px rgba(245, 56, 56, 0.25);
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+}

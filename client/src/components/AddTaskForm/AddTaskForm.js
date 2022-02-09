@@ -2,6 +2,8 @@ import React,{useState, useEffect} from 'react';
 import { useSelector, useDispatch} from 'react-redux'
 import { getAllCategories } from '../../redux/actions/allCategoriesAC';
 import {addUserTask } from '../../redux/actions/userTasksAC'
+import style from "./addtask.module.css";
+import img from "../img/imgmansecond.jpg";
 
 function AddTaskForm(props) { 
 
@@ -28,6 +30,11 @@ const submitHandler = (e) => {
   }, []);
   
   return(
+    <div className={style.container_form__user_info}>
+      <div className={style.illustration___form__user}>
+        <img src={img} alt="back img" />
+      </div>
+      <div className={style.container_form__user}>
     <form onSubmit={submitHandler}>
       <lable for="title">Название задания</lable>
       <input id="title" type="text" name="title" onChange={inputHandler} value={inputs.name}></input>
@@ -44,10 +51,13 @@ const submitHandler = (e) => {
       <lable for="image">Прикрепите изображения, относящиеся к заказу</lable>    
       <input id="image" type="text" name="image" onChange={inputHandler} value={inputs.image}></input> 
       <lable for="categories">Выберите категорию, подходящую к заказу</lable>    
-      <select id="categories" type="select" name="categories" onChange={inputHandler} value={inputs.categories}>
-        {categories.map(el => <option key={el.id} value={el.id}>{el.title}</option>)}</select>   
-      <button>submit this shit</button>
+      <select className={style.container_form_input} id="categories" type="select" name="categories" onChange={inputHandler} value={inputs.categories}>
+        {categories.map(el => <option key={el.id} value={el.id}>{el.title}</option>)}</select>
+      <button className={style.btn_circle}>submit this shit</button>
     </form>
+    </div>
+
+    </div>
   ) 
 }
 

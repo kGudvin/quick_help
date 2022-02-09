@@ -4,7 +4,7 @@ import { setOneUserTask } from '../../../../redux/actions/currentUserTasksAC';
 import {getUsersTasks} from '../../../../redux/actions/userTasksAC'
 import TaskItem from '../TaskItem/TaskItem';
 
-function Tasks({input, price, cat}) {
+function Tasks({input, price, cat, lim}) {
 
   const dispatch = useDispatch()
   const allTasks = useSelector(state=>state.usersTasks)
@@ -32,11 +32,13 @@ if(price){
       }
   }, [cat])
   useEffect(()=>{
-    dispatch(getUsersTasks())
+    dispatch(getUsersTasks(lim))
+    console.log("aaaaaaaaaaaaaaaaaaaaaaa");
   },[])
+  
   return (
     <>
-    {result.map(el => <TaskItem key={el.id} id={el.id} title={el.title} adress={el.adress} time={el.time} date={el.date} price={el.price}
+    {result && result.map(el => <TaskItem key={el.id} id={el.id} title={el.title} adress={el.adress} time={el.time} date={el.date} price={el.price}
     description={el.description} image={el.image} categorie={el.categorie}/>)}
     </>
   );
