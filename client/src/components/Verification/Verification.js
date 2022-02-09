@@ -1,7 +1,7 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useRef} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllCategories } from "../../redux/actions/allCategoriesAC";
-import { updateUser } from "../../redux/actions/userAC";
+import { postImage, updateUser } from "../../redux/actions/userAC";
 import style from "./Verification.module.css";
 import img from "../img/imgmansecond.jpg";
 import { useNavigate } from "react-router-dom";
@@ -28,7 +28,19 @@ export default function Verification() {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const upload = useRef();
 
+  // для отправки фото
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const newIncident = {
+      sampleFile: upload.current.files[0],
+    };
+  dispatch(postImage(newIncident))
+  }
+
+
+  // для отправки информации о юзере
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(updateUser(inputs));
@@ -42,7 +54,7 @@ export default function Verification() {
   return (
     <div className={style.container_form__user_info}>
       <div className={style.container_form__user}>
-        <form className={style.form__user_info} onSubmit={submitHandler}>
+        <form className={style.form__user_info} onSubmit={(e)=>submitHandler(e)}>
           <label htmlFor="name">Имя :</label>
           <input
             id="name"
@@ -114,16 +126,13 @@ export default function Verification() {
           </select>
           {/* добавление фото */}
 
-          <div className={style.choose_photo__account}>
-            <input type="file"
-                    name="file"
-                    id="file"
-                    // ref={upload}
-                    // onChange={imageHandler}
-            />
-              <button  className={style.notification__infoUser_btn}>
-                Загрузить фото
-              </button>
+           <div className={style.choose_photo__account}>
+                <label htmlFor="sampleFile">Обновить фотографию профиля:</label>
+                <div className={style.choose_photo_inp}>
+
+                <input type="file" name="sampleFile" ref={upload}/>
+                <input onClick ={(e)=>handleSubmit(e)} type="submit" value="Upload!" />
+                </div>
             </div>
 
           <button className={style.container__form_btn}>Сохранить</button>

@@ -1,15 +1,13 @@
-import React, { useRef, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Rating from "../../UI/Rating/Rating";
 import style from "./UserPage.module.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCurrentUser, postImage } from "../../../redux/actions/userAC";
-import axios from "axios";
+import { getCurrentUser } from "../../../redux/actions/userAC";
+
 
 export default function UserPage() {
-  // const allState = useSelector(state => state.users)
   const currentUser = useSelector((state) => state.users);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -18,20 +16,13 @@ export default function UserPage() {
   const changePathtoQuizz = () => {
     navigate("/quizz");
   };
+
   useEffect(() => {
     dispatch(getCurrentUser(id.id));
   }, []);
 
-
-
-  
-
-
-
   return (
     <>
-
-
     <div className={style.container__account}>
       {currentUser.name &&
       currentUser.secondname &&
@@ -60,8 +51,26 @@ export default function UserPage() {
         <div className={style.header_wrapper__account}>
           <div className={style.wrapper_photo__account}>
             <div className={style.photo__account}>
+              {currentUser.image ?
+             (
+                <div>
+                      <img
+                         src={`http://localhost:3001${currentUser.image}`} alt="dhg"
+                      />
+                </div>
+               )
+               :
+               (
+               
+                <div>
+                      <img
+                         src="https://cdn-icons-png.flaticon.com/512/166/166260.png"
+                         alt="photo userA"
+                      />
+                </div>
+               )
+              }
 
-             
             </div>
 
             <div className={style.rating__account}>

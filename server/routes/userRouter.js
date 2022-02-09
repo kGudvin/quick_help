@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
-const { Users } = require('../db/models') 
+const { Users } = require('../db/models');
+const path = require('path')
 
 router.route('/check')
 .post((req, res) => {
@@ -81,46 +82,61 @@ router.route('/updateuserinfo')
 })
 
 // router.route('/upload/')
-// .post(async(req, res) => {
+// .post(  async (req, res) => {
 //   let sampleFile;
 //   let uploadPath;
-// console.log(req.files);
+//   // console.log(req.files);
 
-//   if (!req.files || Object.keys(req.files).length === 0) {
-//     return res.status(400).send('No files were uploaded.');
+  
+//   if (req.files === null) {
+//     return res.status(400).json({ msg: 'No file uploaded' });
 //   }
 
 //   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-//   sampleFile = req.files.sampleFile;
-//   uploadPath = __dirname + '/somewhere/on/your/server/' + sampleFile.name;
+//   sampleFile = req.files.image;
+//   uploadPath = __dirname + '/image/' + sampleFile.name;
+//   console.log(uploadPath);
 
 //   // Use the mv() method to place the file somewhere on your server
-//   sampleFile.mv(uploadPath, function(err) {
+//   sampleFile.mv(uploadPath, async function(err) {
 //     if (err)
 //       return res.status(500).send(err);
 
+//       // return res.status(500).send(err);
+//       await Users.update({
+//         image: uploadPath
+//       },
+//       {where:{id:req.session.user.id}})
+//     });
 //     res.send('File uploaded!');
-//   });
 // });
-router.post('/upload', (req, res) => {
+router.route('/upload/')
+.post(async(req, res) => {
+  let sampleFile;
+  let uploadPath;
+  // console.log(req.files);
 
-  console.log(req.files);
-
-  
-  if (req.files === null) {
-    return res.status(400).json({ msg: 'No file uploaded' });
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send('No files were uploaded.');
   }
 
-  const file = req.files.file;
+  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+  sampleFile = req.files.image;
+  uploadPath = path.join(process.env.PWD, `/public/uploads/${sampleFile.name}`) ;
+  console.log(uploadPath);
 
-  file.mv(`${__dirname}/client/public/uploads/${file.name}`, err => {
-    if (err) {
-      console.error(err);
+  // Use the mv() method to place the file somewhere on your server
+  sampleFile.mv(uploadPath, async function(err) {
+    if (err)
       return res.status(500).send(err);
-    }
 
-    res.json({ fileName: file.name, filePath: `/uploads/${file.name}` });
-  });
+      // return res.status(500).send(err);
+      await Users.update({
+        image: `/uploads/${sampleFile.name}`
+      },
+      {where:{id:req.session.user.id}})
+    });
+    res.send('File uploaded!');
 });
 
 module.exports = router;

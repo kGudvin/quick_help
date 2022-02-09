@@ -11,11 +11,15 @@ export const getCurrentUser = ()=> async (dispatch)=>{
   const res = await axios(`/user/userpage/`)
     dispatch(setUser(res.data.currentUser))
 }
-export const postImage = (image)=> async (dispatch)=>{
-  console.log(123)
-  console.log('newIncident',image);
-  const res = await axios.post(`/user/upload/`, image)
-    dispatch({type: SET_IMAGE,payload: res.data})
+export const postImage = (newIncident)=> async (dispatch)=>{
+  const formData = new FormData()
+  formData.append('image', newIncident.sampleFile)
+  const res = await axios.post(`/user/upload/`, formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  })
+dispatch({type: SET_IMAGE,payload: res.data})
 }
 
 

@@ -1,14 +1,36 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { setOneUserTask } from '../../../../redux/actions/currentUserTasksAC';
 import {getUsersTasks} from '../../../../redux/actions/userTasksAC'
 import TaskItem from '../TaskItem/TaskItem';
 
-function Tasks({input}) {
+function Tasks({input, price, cat}) {
 
   const dispatch = useDispatch()
   const allTasks = useSelector(state=>state.usersTasks)
+  console.log(allTasks);
   let regexp = new RegExp(input, 'i')
-  let result = allTasks.filter(el=>regexp.test(el.title))
+  const [result, setResult] = useState(allTasks)
+  
+  useEffect(()=>{
+if(price){
+  let as = allTasks.filter(el=>el.price >= price)
+  setResult(as)
+
+  }
+  }, [price])
+  useEffect(()=>{
+  let res = allTasks.filter(el=>regexp.test(el.title))
+  setResult(res)
+  }, [input])
+
+  useEffect(()=>{
+    if(cat){
+      let catRes = allTasks.filter(el=>el.categorie === cat)
+      setResult(catRes)
+    
+      }
+  }, [cat])
   useEffect(()=>{
     dispatch(getUsersTasks())
   },[])
@@ -20,4 +42,4 @@ function Tasks({input}) {
   );
 }
 
-export default Tasks;
+export default Tasks
