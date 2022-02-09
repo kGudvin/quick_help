@@ -16,7 +16,7 @@ export const addTask = (value) => {
 
 export const getUsersTasks = () =>  async(dispatch) => {
     axios('/userstasks')
-    .then(res => dispatch(setTask(res.data.allUsersTasks)))
+    .then(res => dispatch(setTask(res.data.allTasks)))
     .catch(err => console.log(err))
 }
 

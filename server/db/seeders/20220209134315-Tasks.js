@@ -10,6 +10,7 @@ module.exports = {
     const adressArr = ['Москва, улица Орджоникидзе, 11с10 ','Москва, Яузская улица, 11/6к4','Москва, 1-й Земельный переулок, 1','Москва, Октябрьская улица, 91к1 ','Москва, ул. Льва Толстого, 16']
     for (let index = 0; index < 5; index++) {
       arr.push({
+        // userId: index+1,
         title: faker.name.jobArea(),
         address: adressArr[index],
         time: (time+index).toString(),
@@ -23,7 +24,7 @@ module.exports = {
         });
       
     }
-    await queryInterface.bulkInsert('UsersTasks', arr, {});
+    await queryInterface.bulkInsert('Tasks', arr, {});
     },
 
   async down (queryInterface, Sequelize) {

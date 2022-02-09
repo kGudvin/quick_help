@@ -1,0 +1,1 @@
+export const GET_ALL_PERFORMERS = 'GET_ALL_PERFORMERS'

@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Role } = require('../db/models')
+const { Roles } = require('../db/models')
 
 
 
 router.route('/')
 .get(async(req, res) => {
-    const roles = await Role.findAll();
+    const roles = await Roles.findAll();
     res.json({roles})
 })
 

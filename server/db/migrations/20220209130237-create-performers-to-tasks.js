@@ -1,26 +1,26 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Organ-OrganTasks', {
+    await queryInterface.createTable('PerformersToTasks', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      organizationId: {
+      userId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Organizations',
-          key: 'id'
-        }
+          model: 'Users',
+          key: 'id',
+        },
       },
       taskId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'OrganizationsTasks',
-          key: 'id'
-        }
+          model: 'Tasks',
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,
@@ -33,6 +33,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Organ-OrganTasks');
+    await queryInterface.dropTable('PerformersToTasks');
   }
 };

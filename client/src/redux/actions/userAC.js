@@ -12,14 +12,10 @@ export const getCurrentUser = ()=> async (dispatch)=>{
     dispatch(setUser(res.data.currentUser))
 }
 export const postImage = (newIncident)=> async (dispatch)=>{
-  const formData = new FormData()
-  formData.append('image', newIncident.sampleFile)
-  const res = await axios.post(`/user/upload/`, formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data'
-    }
-  })
-dispatch({type: SET_IMAGE,payload: res.data})
+  console.log(123)
+  console.log('newIncident',newIncident);
+  const res = await axios.post(`/user/upload/`, newIncident)
+    dispatch({type: SET_IMAGE,payload: res.data})
 }
 
 
@@ -55,8 +51,8 @@ export const updateUser = (input) => async(dispatch) => {
   const res = await axios.patch('/user/updateuserinfo', input)
   dispatch(setUser(res.data.user))
 }
-export const getOneTask = (taskId) => async(dispatch) =>{
-  console.log("getOneTaskAC");
-  const res = await axios.post('/userstasks/setonetasktouser')
-  // .then(res =>  )
-}
+// export const getOneTask = (taskId) => async(dispatch) =>{
+//   console.log("getOneTaskAC");
+//   const res = await axios.post('/userstasks/setonetasktouser')
+//   // .then(res =>  )
+// }

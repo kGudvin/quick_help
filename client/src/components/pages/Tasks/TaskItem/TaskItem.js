@@ -10,15 +10,23 @@ import {useDispatch, useSelector} from 'react-redux'
 function TaskItem({id, title, adress, time, date, price, description, image, categorie}) {
 
 const allTasks = useSelector(state=>state.currentUserTasks)
+const user = useSelector(state => state.users)
 
+let flag2 
+if(user.id === id){
+  flag2 = true
+}else{
+  flag2=false
+}
 const array = allTasks.map(el => el.id)
 console.log(array, id, array.indexOf(id));
 let flag
-if(array.indexOf(id) >= 0){
+if(array.indexOf(id) >= 0 ){
   flag = true
 }else{
   flag = false
 }
+
 
 const dispatch = useDispatch()
   return (
@@ -45,12 +53,9 @@ const dispatch = useDispatch()
           <div className={style.descr__vacantie}>Описание:
           {description}
           </div>
-          <div >
-            {/* <a className={style.link__vacantie}href="#"> Подробнее...</a> */}
-            {!flag?<button onClick={()=>dispatch(takeOnTheTask(id))}>Откликнуться на вакансию</button>: "Вы откликнулись"}
-            {/* <button onClick={()=>dispatch(takeOnTheTask(id))}>Откликнуться на вакансию</button> */}
+          <div>
+            {!flag?<button onClick={()=>dispatch(takeOnTheTask(id))}>Откликнуться на вакансию</button>:"Вы откликнулись"}
             <button>Написать работодателю</button>
-
           </div>
         </div>
       {/*

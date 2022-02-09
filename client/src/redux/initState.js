@@ -4,5 +4,7 @@ export const initState ={
   usersTasks:[],
   oneUserTask: {},
   currentUserTasks:[],
-  allCategories:[]
+  allCategories:[],
+  performers:[],
+  currentUserMissions:[]
 }
