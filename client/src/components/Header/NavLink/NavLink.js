@@ -16,8 +16,8 @@ const NavLink = () => {
                 <Link to='findtask' className={style.link}>Найти задания</Link>
                 <Link to='mytasks' className={style.link}>Моя подработка</Link>
                 <Link to='addtask' className={style.link}>Создать задание</Link>
-                <Link to='tasks' className={style.link}>Мои задания</Link>
-                <Link to='tasks' className={style.link}>Мои исполнители</Link>
+                <Link to='missions' className={style.link}>Мои задания</Link>
+                <Link to='performers' className={style.link}>Мои исполнители</Link>
                 {/* <Link to='#' className={style.link}>Уведомления</Link> */}
                 
 

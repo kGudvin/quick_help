@@ -20,6 +20,9 @@ import Footer from "./components/Footer/Footer";
 import OrganizationPage from "./components/pages/OrganizationPage/OrganizationPage";
 import AddTaskForm from "./components/AddTaskForm/AddTaskForm";
 import MyTasks from "./components/pages/Tasks/MyTasks/MyTasks";
+import Performers from "./components/pages/Performers/Performers";
+import Missions from "./components/pages/Missions/Missions";
+import TEST from "./components/pages/TEST";
 
 
 
@@ -40,6 +43,8 @@ function App() {
         <Route path="findtask" element={<FindTask/>}/>
         <Route path="/mytasks" element={<MyTasks/>}/>
         <Route path="/tasks" element={<Tasks/>}/>
+        <Route path="/missions" element={<Missions/>}/>
+        <Route path="/performers" element={<Performers/>}/>
         <Route path="tasks/userstasks/:id" element={<OneTaskPage/>}/>
         <Route path="/organization" element={<OrganizationPage/>} />
         <Route path='/signin' element={
@@ -85,7 +90,7 @@ function App() {
             </Protectedauth>
           }
         />
-        <Route path="/test" element={<Ymap/>} />
+        <Route path="/test" element={<TEST/>} />
       </Routes>
       <Footer />
     </>

@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
-const { Users } = require('../db/models') 
+const { Users } = require('../db/models');
+const path = require('path')
 
 router.route('/check')
 .post((req, res) => {
@@ -66,19 +67,25 @@ router.route('/userpage/')
   // console.log({currentUser});
   res.json({currentUser})
 })
-
+//получение всех юзеров
+router.route('/allusers')
+.get(async (req, res) => {
+  const allUsers = await Users.findAll()
+  res.json({allUsers})
+})
 
 router.route('/updateuserinfo')
 .patch( async (req,res) => {
   // console.log(req.body);
     const {name,secondname,patronymic,age,about,phone,categories } = req.body
-    const user = Users.update(
+    const user = await Users.update(
       {
         name,secondname,patronymic,age,about,phone
       },
     {where:{id:req.session.user.id}})
     res.json({user})
 })
+
 
 router.route('/upload/')
 .post(async(req, res) => {
@@ -92,7 +99,7 @@ router.route('/upload/')
 
   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
   sampleFile = req.files.image;
-  uploadPath = __dirname + '/image/' + sampleFile.name;
+  uploadPath = path.join(process.env.PWD, `/public/uploads/${sampleFile.name}`) ;
   console.log(uploadPath);
 
   // Use the mv() method to place the file somewhere on your server
@@ -102,7 +109,7 @@ router.route('/upload/')
 
       // return res.status(500).send(err);
       await Users.update({
-        image: uploadPath
+        image: `/uploads/${sampleFile.name}`
       },
       {where:{id:req.session.user.id}})
     });

@@ -6,7 +6,7 @@ import NavLink from './NavLink/NavLink'
 import style from './style.module.css'
 
 const Header = () =>{
-    const user = useSelector(state=> state.users)
+    const user = useSelector(state=> state.oneUser)
     return (
         <nav className={`${style.nav}`}>
             <Logo/>

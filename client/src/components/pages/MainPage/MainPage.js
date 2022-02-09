@@ -51,10 +51,10 @@ useEffect(() => {
       <div className={style.container__block}>
         <div className={style.text__block}>
           <div className={style.header__main}>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Найдите человека, способного починить компьютер в вашем районе
           </div>
           <div className={style.subheader__main}>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Все просто! Заполните форму и ждите откликов.
           </div>
         </div>
         <div className={style.img__block}>
@@ -67,21 +67,21 @@ useEffect(() => {
           <div className={style.img__block__small_round}>
             <i className="fas fa-user"> </i>
           </div>
-          <div className={style.text__block_small}>Текст о картинке</div>
+          <div className={style.text__block_small}>Все пользователи прошли регистрацию, мы даем гарантию на их работу</div>
         </div>
         <hr />
         <div className={style.container__block_small}>
           <div className={style.img__block__small_round}>
             <i className="fas fa-map-marker-alt"></i>
           </div>
-          <div className={style.text__block_small}>Tекст о картинке</div>
+          <div className={style.text__block_small}>Найдите исполнителя рядом с домом</div>
         </div>
         <hr />
         <div className={style.container__block_small}>
           <div className={style.img__block__small_round}>
             <i className="fas fa-funnel-dollar"></i>
           </div>
-          <div className={style.text__block_small}>Tекст о картинке</div>
+          <div className={style.text__block_small}>Управляйте откликами в личном кабинете</div>
         </div>
       </div>
 

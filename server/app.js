@@ -10,12 +10,12 @@ const userRouter = require('./routes/userRouter');
 const rolesRouter = require('./routes/rolesRouter');
 const usersTasksRouter = require('./routes/usersTasksRouter');
 const categoriesRouter = require('./routes/categoriesRouter')
-
+const path = require('path')
 
 const PORT = 3001;
 const app = express(); 
 
-
+app.use(express.static(path.join(__dirname, 'public')))
 app.use(fileUpload());
 app.use(express.json());
 app.use(morgan('dev'));

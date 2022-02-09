@@ -55,7 +55,10 @@ function Ymap({input}) {
         
     }
     useEffect(()=>{
-         dispatch(getUsersTasks())
+      // setTimeout(()=>{
+      //   console.log("ggfds");
+      // },5000)
+      dispatch(getUsersTasks())
          console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb');
         //  someFunction()
          if(tasks.length && per){

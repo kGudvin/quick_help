@@ -86,3 +86,26 @@ input:hover {
 .options__form_btn{
   background-color: #ffecec;
 }
+.choose_photo__account input{
+  margin: 5px;
+}
+.choose_photo__account{
+  position: absolute;
+  top: 200px;
+  right: 565px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+/* input#file-upload-button{
+  background-color: red;
+} */
+.choose_photo_inp{
+  display: flex;
+  align-items: center;
+  width: 300px;
+}
+.choose_photo_inp input{
+  width: 100px;
+}

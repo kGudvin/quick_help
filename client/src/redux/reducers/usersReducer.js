@@ -1,14 +1,12 @@
-import { SET_IMAGE, SET_USER} from "../types/usersTypes";
+import { SET_ALLUSERS} from "../types/usersTypes";
 
 export const usersReducer = (state = null, action) => {
     const {type, payload} = action;
 
     switch (type) {
-        case SET_USER:
+        case SET_ALLUSERS:
             return payload;
-        case SET_IMAGE:
-            return {...state, payload}
-
+      
         default:
             return state;
     }

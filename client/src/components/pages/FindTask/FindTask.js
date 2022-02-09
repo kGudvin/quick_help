@@ -37,7 +37,7 @@ const FindTask = () => {
 
   return (
     <>
-      {/* <Ymap input={input} /> */}
+      <Ymap input={input} />
       <div className={`${style.div}`}>
         <input onChange={(e) => handleChange(e)} className={`${style.input}`} placeholder="поиск по имени"/>
          <select onChange={(e) => handleCat(e)} className={`${style.input}`}>{categories.map(el => <option key={el.id} value={el.title}>{el.title}</option>)}

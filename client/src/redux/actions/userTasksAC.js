@@ -14,9 +14,9 @@ export const addTask = (value) => {
   }
 }
 
-export const getUsersTasks = (lim) =>  async(dispatch) => {
-    axios.post(`/userstasks/${lim}`)
-    .then(res => dispatch(setTask(res.data.allUsersTasks)))
+export const getUsersTasks = () =>  async(dispatch) => {
+    axios('/userstasks')
+    .then(res => dispatch(setTask(res.data.allTasks)))
     .catch(err => console.log(err))
 }
 

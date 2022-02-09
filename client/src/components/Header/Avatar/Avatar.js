@@ -7,7 +7,7 @@ import { userLogout } from "../../../redux/actions/userAC";
 import { useNavigate } from "react-router-dom";
 const Avatar = () => {
   const navigate = useNavigate();
-  const user = useSelector((state) => state.users);
+  const user = useSelector((state) => state.oneUser);
 
   const dispatch = useDispatch();
   const logoutHandler = () => {
