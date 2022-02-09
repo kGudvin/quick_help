@@ -1,11 +1,26 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import { takeOnTheTask } from '../../../../redux/actions/currentUserTasksAC';
 import MainButton from '../../../UI/Buttons/MainButton';
 import ProgressBar from '../../../UI/ProgressBar/ProgressBar';
 import Rating from '../../../UI/Rating/Rating';
 import style from "./TaskItem.module.css"
+import {useDispatch, useSelector} from 'react-redux'
 
 function TaskItem({id, title, adress, time, date, price, description, image, categorie}) {
+
+const allTasks = useSelector(state=>state.currentUserTasks)
+
+const array = allTasks.map(el => el.id)
+console.log(array, id, array.indexOf(id));
+let flag
+if(array.indexOf(id) >= 0){
+  flag = true
+}else{
+  flag = false
+}
+
+const dispatch = useDispatch()
   return (
     <div className={style.wrapper__vacantie}>
     
@@ -18,11 +33,10 @@ function TaskItem({id, title, adress, time, date, price, description, image, cat
           </div>
           <div className={style.rating__vacantie}>
             <Rating />
-            <ProgressBar done={50}/>
           </div>
         </div>
         <div className={style.info__vacantie}>
-          <Link to={`userstasks/${id}`} className={style.header__vacantie}> <p>{title}</p></Link> 
+          <Link to={`/tasks/userstasks/${id}`} className={style.header__vacantie}> <p>{title}</p></Link> 
           <div className={style.subheader__vacantie}>Категория:{categorie}</div>
           <div className={style.subheader__vacantie}>Адрес:{adress}</div>
           <div className={style.subheader__vacantie}>Начать: {date}</div>
@@ -33,7 +47,8 @@ function TaskItem({id, title, adress, time, date, price, description, image, cat
           </div>
           <div >
             {/* <a className={style.link__vacantie}href="#"> Подробнее...</a> */}
-            <button>Откликнуться на вакансию</button>
+            {!flag?<button onClick={()=>dispatch(takeOnTheTask(id))}>Откликнуться на вакансию</button>: "Вы откликнулись"}
+            {/* <button onClick={()=>dispatch(takeOnTheTask(id))}>Откликнуться на вакансию</button> */}
             <button>Написать работодателю</button>
 
           </div>

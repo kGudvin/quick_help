@@ -1,5 +1,5 @@
 import axios from "axios"
-import { SET_USER, SET_IMAGE } from "../types/usersTypes"
+import { SET_USER, TakenTasks, SET_IMAGE } from "../types/usersTypes"
 
 export const setUser = (value) => {
   return {
@@ -50,4 +50,9 @@ export const updateUser = (input) => async(dispatch) => {
   console.log("updateUserAC");
   const res = await axios.patch('/user/updateuserinfo', input)
   dispatch(setUser(res.data.user))
+}
+export const getOneTask = (taskId) => async(dispatch) =>{
+  console.log("getOneTaskAC");
+  const res = await axios.post('/userstasks/setonetasktouser')
+  // .then(res =>  )
 }

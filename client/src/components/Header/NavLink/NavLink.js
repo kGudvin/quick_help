@@ -14,7 +14,7 @@ const NavLink = () => {
         <div className={style.link_list}>
 {/* Это только для юзера зарегистированного!! тут условие */}
                 <Link to='findtask' className={style.link}>Найти задания</Link>
-                <Link to='addtask' className={style.link}>Моя подработка</Link>
+                <Link to='mytasks' className={style.link}>Моя подработка</Link>
                 <Link to='addtask' className={style.link}>Создать задание</Link>
                 <Link to='tasks' className={style.link}>Мои задания</Link>
                 <Link to='tasks' className={style.link}>Мои исполнители</Link>

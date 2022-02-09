@@ -1,14 +1,14 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Users-UserTasks', {
+    await queryInterface.createTable('UsersToUserTasks', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId: {
+      ownerId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',
@@ -20,7 +20,17 @@ module.exports = {
         references: {
           model: 'UsersTasks',
           key: 'id'
+        },
+      },
+      performerId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id'
         }
+      },
+      status:{
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
@@ -33,6 +43,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users-UserTasks');
+    await queryInterface.dropTable('UsersToUserTasks');
   }
 };

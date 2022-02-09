@@ -14,8 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   UsersToUserTasks.init({
-    userId: DataTypes.INTEGER,
-    taskId: DataTypes.INTEGER
+    ownerId: DataTypes.INTEGER,
+    taskId: DataTypes.INTEGER,
+    performerId: DataTypes.INTEGER,
+    status: DataTypes.BOOLEAN 
   }, {
     sequelize,
     modelName: 'UsersToUserTasks',
