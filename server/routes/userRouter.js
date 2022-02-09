@@ -72,7 +72,7 @@ router.route('/updateuserinfo')
 .patch( async (req,res) => {
   // console.log(req.body);
     const {name,secondname,patronymic,age,about,phone,categories } = req.body
-    const user = Users.update(
+    const user = await Users.update(
       {
         name,secondname,patronymic,age,about,phone
       },
@@ -80,26 +80,46 @@ router.route('/updateuserinfo')
     res.json({user})
 })
 
-router.route('/upload/')
-.post(async(req, res) => {
-  let sampleFile;
-  let uploadPath;
+// router.route('/upload/')
+// .post(async(req, res) => {
+//   let sampleFile;
+//   let uploadPath;
+// console.log(req.files);
+
+//   if (!req.files || Object.keys(req.files).length === 0) {
+//     return res.status(400).send('No files were uploaded.');
+//   }
+
+//   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+//   sampleFile = req.files.sampleFile;
+//   uploadPath = __dirname + '/somewhere/on/your/server/' + sampleFile.name;
+
+//   // Use the mv() method to place the file somewhere on your server
+//   sampleFile.mv(uploadPath, function(err) {
+//     if (err)
+//       return res.status(500).send(err);
+
+//     res.send('File uploaded!');
+//   });
+// });
+router.post('/upload', (req, res) => {
+
   console.log(req.files);
 
-  if (!req.files || Object.keys(req.files).length === 0) {
-    return res.status(400).send('No files were uploaded.');
+  
+  if (req.files === null) {
+    return res.status(400).json({ msg: 'No file uploaded' });
   }
 
-  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-  sampleFile = req.files.sampleFile;
-  uploadPath = __dirname + '/somewhere/on/your/server/' + sampleFile.name;
+  const file = req.files.file;
 
-  // Use the mv() method to place the file somewhere on your server
-  sampleFile.mv(uploadPath, function(err) {
-    if (err)
+  file.mv(`${__dirname}/client/public/uploads/${file.name}`, err => {
+    if (err) {
+      console.error(err);
       return res.status(500).send(err);
+    }
 
-    res.send('File uploaded!');
+    res.json({ fileName: file.name, filePath: `/uploads/${file.name}` });
   });
 });
 
