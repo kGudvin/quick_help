@@ -67,7 +67,12 @@ router.route('/userpage/')
   // console.log({currentUser});
   res.json({currentUser})
 })
-
+//получение всех юзеров
+router.route('/allusers')
+.get(async (req, res) => {
+  const allUsers = await Users.findAll()
+  res.json({allUsers})
+})
 
 router.route('/updateuserinfo')
 .patch( async (req,res) => {
@@ -81,35 +86,7 @@ router.route('/updateuserinfo')
     res.json({user})
 })
 
-// router.route('/upload/')
-// .post(  async (req, res) => {
-//   let sampleFile;
-//   let uploadPath;
-//   // console.log(req.files);
 
-  
-//   if (req.files === null) {
-//     return res.status(400).json({ msg: 'No file uploaded' });
-//   }
-
-//   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-//   sampleFile = req.files.image;
-//   uploadPath = __dirname + '/image/' + sampleFile.name;
-//   console.log(uploadPath);
-
-//   // Use the mv() method to place the file somewhere on your server
-//   sampleFile.mv(uploadPath, async function(err) {
-//     if (err)
-//       return res.status(500).send(err);
-
-//       // return res.status(500).send(err);
-//       await Users.update({
-//         image: uploadPath
-//       },
-//       {where:{id:req.session.user.id}})
-//     });
-//     res.send('File uploaded!');
-// });
 router.route('/upload/')
 .post(async(req, res) => {
   let sampleFile;

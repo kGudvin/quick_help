@@ -1,5 +1,5 @@
 import axios from "axios"
-import { SET_USER, TakenTasks, SET_IMAGE } from "../types/usersTypes"
+import { SET_USER, TakenTasks, SET_IMAGE, SET_ALLUSERS } from "../types/usersTypes"
 
 export const setUser = (value) => {
   return {
@@ -7,10 +7,24 @@ export const setUser = (value) => {
       payload: value
   }
 }
+
+export const setAllUsers = (value) => {
+  return {
+      type: SET_ALLUSERS,
+      payload: value
+  }
+}
+
 export const getCurrentUser = ()=> async (dispatch)=>{
   const res = await axios(`/user/userpage/`)
     dispatch(setUser(res.data.currentUser))
 }
+export const getAlltUsers = ()=> async (dispatch)=>{
+  const res = await axios(`/user/allusers`)
+
+    dispatch(setAllUsers(res.data.allUsers))
+}
+
 export const postImage = (newIncident)=> async (dispatch)=>{
   console.log(123)
   console.log('newIncident',newIncident);

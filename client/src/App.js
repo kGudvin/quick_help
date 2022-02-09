@@ -22,6 +22,7 @@ import AddTaskForm from "./components/AddTaskForm/AddTaskForm";
 import MyTasks from "./components/pages/Tasks/MyTasks/MyTasks";
 import Performers from "./components/pages/Performers/Performers";
 import Missions from "./components/pages/Missions/Missions";
+import TEST from "./components/pages/TEST";
 
 
 
@@ -89,7 +90,7 @@ function App() {
             </Protectedauth>
           }
         />
-        <Route path="/test" element={<Ymap/>} />
+        <Route path="/test" element={<TEST/>} />
       </Routes>
       <Footer />
     </>

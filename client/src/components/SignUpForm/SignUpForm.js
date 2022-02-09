@@ -13,7 +13,7 @@ const Signupform = () => {
 
     const dispatch = useDispatch();
     const roles = useSelector( state => state.roles);
-    const user = useSelector(state=> state.users)
+    const user = useSelector(state=> state.oneUser)
     const navigate = useNavigate()
 
     const inputHandler = (e) => {
