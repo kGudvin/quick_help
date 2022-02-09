@@ -3,6 +3,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 var session = require('express-session');
 var FileStore = require('session-file-store')(session);
+const fileUpload = require('express-fileupload');
 
 
 const userRouter = require('./routes/userRouter');
@@ -15,6 +16,7 @@ const PORT = 3001;
 const app = express(); 
 
 
+app.use(fileUpload());
 app.use(express.json());
 app.use(morgan('dev'));
 
@@ -39,6 +41,7 @@ app.use('/user', userRouter);
 app.use('/roles', rolesRouter)
 app.use('/userstasks', usersTasksRouter)
 app.use('/categories', categoriesRouter)
+
 
 app.listen(PORT, () => {
     console.log('Server start on port ', PORT)

@@ -13,6 +13,7 @@
 }
 .header_wrapper__account {
   display: flex;
+  flex-direction: row;
 }
 .wrapper_photo__account {
   width: 50%;
@@ -20,8 +21,8 @@
   flex-direction: column;
   align-items: center;
 }
-.choose_photo__account{
-  margin: 20px 0 20px 0;
+.photo__account{
+  margin-bottom: 30px;
 }
 .choose_photo_btn__account{
   width: 150px;
