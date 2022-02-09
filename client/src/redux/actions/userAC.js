@@ -1,5 +1,5 @@
 import axios from "axios"
-import { SET_USER, TakenTasks } from "../types/usersTypes"
+import { SET_USER, TakenTasks, SET_IMAGE } from "../types/usersTypes"
 
 export const setUser = (value) => {
   return {
@@ -9,8 +9,20 @@ export const setUser = (value) => {
 }
 export const getCurrentUser = ()=> async (dispatch)=>{
   const res = await axios(`/user/userpage/`)
-  console.log('curreeeeeennnnnntttuuuuseeeeerrrr back',res.data.currentUser);
     dispatch(setUser(res.data.currentUser))
+}
+export const postImage = (newIncident)=> async (dispatch)=>{
+  console.log(123)
+  console.log('newIncident',newIncident);
+  const formData = new FormData()
+  formData.append('image', newIncident.sampleFile)
+  const res = await axios.post(`/user/upload/`, formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  })
+
+    dispatch({type: SET_IMAGE,payload: res.data})
 }
 
 

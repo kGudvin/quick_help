@@ -1,41 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllCategories } from "../../redux/actions/allCategoriesAC";
 import { updateUser } from "../../redux/actions/userAC";
 import style from "./Verification.module.css";
 import img from "../img/imgmansecond.jpg";
+import { useNavigate } from "react-router-dom";
+
 export default function Verification() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  
   const categories = useSelector((state) => state.allCategories);
+  const user = useSelector(state=>state.users)
   const [inputs, setInputs] = useState({
-    name: "",
-    secondname: "",
-    patronymic: "",
-    age: 18,
-    about: "",
+    name: user.name,
+    secondname: user.secondname,
+    patronymic: user.patronymic,
+    age: user.age,
+    about: user.about,
     categories: 1,
   });
+  useEffect(() => {
+    dispatch(getAllCategories());
+  }, []);
 
   const inputHandler = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  useEffect(() => {
-    dispatch(getAllCategories());
-  }, []);
 
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(updateUser(inputs));
-    setInputs({
-      name: "",
-      secondname: "",
-      patronymic: "",
-      age: 18,
-      about: "",
-      categories: 1,
-    });
+    setTimeout(()=>{
+      navigate('/user/userpage')
+    },1000)
   };
+// -------------------------------
+
 
   return (
     <div className={style.container_form__user_info}>
@@ -48,6 +50,7 @@ export default function Verification() {
             name="name"
             onChange={inputHandler}
             value={inputs.name}
+            required
           />
           <label htmlFor="secondname">Фамилия : </label>
           <input
@@ -56,6 +59,7 @@ export default function Verification() {
             name="secondname"
             onChange={inputHandler}
             value={inputs.secondname}
+            required
           />
           <label htmlFor="patronymic">Очество : </label>
           <input
@@ -64,6 +68,7 @@ export default function Verification() {
             name="patronymic"
             onChange={inputHandler}
             value={inputs.patronymic}
+            required
           />
           <label htmlFor="age"> Возраст :</label>
           <input
@@ -72,6 +77,7 @@ export default function Verification() {
             name="age"
             onChange={inputHandler}
             value={inputs.age}
+            required
           />
           <label htmlFor="phone"> Телефон :</label>
           <input
@@ -80,6 +86,7 @@ export default function Verification() {
             name="phone"
             onChange={inputHandler}
             value={inputs.phone}
+            required
           />
           <label htmlFor="about">О себе :</label>
           <input
@@ -105,6 +112,19 @@ export default function Verification() {
                 </option>
               ))}
           </select>
+          {/* добавление фото */}
+
+          <div className={style.choose_photo__account}>
+            <input type="file"
+                    name="file"
+                    id="file"
+                    // ref={upload}
+                    // onChange={imageHandler}
+            />
+              <button  className={style.notification__infoUser_btn}>
+                Загрузить фото
+              </button>
+            </div>
 
           <button className={style.container__form_btn}>Сохранить</button>
         </form>

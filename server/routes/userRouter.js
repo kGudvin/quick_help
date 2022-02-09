@@ -63,14 +63,14 @@ router.route('/userpage/')
 .get(async (req, res) => {
   const id = req.session.user.id
   const currentUser = await Users.findOne({where:{id}})
-  console.log({currentUser});
+  // console.log({currentUser});
   res.json({currentUser})
 })
 
 
 router.route('/updateuserinfo')
 .patch( async (req,res) => {
-
+  // console.log(req.body);
     const {name,secondname,patronymic,age,about,phone,categories } = req.body
     const user = Users.update(
       {
@@ -80,5 +80,33 @@ router.route('/updateuserinfo')
     res.json({user})
 })
 
+router.route('/upload/')
+.post(async(req, res) => {
+  let sampleFile;
+  let uploadPath;
+  // console.log(req.files);
+
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send('No files were uploaded.');
+  }
+
+  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+  sampleFile = req.files.image;
+  uploadPath = __dirname + '/image/' + sampleFile.name;
+  console.log(uploadPath);
+
+  // Use the mv() method to place the file somewhere on your server
+  sampleFile.mv(uploadPath, async function(err) {
+    if (err)
+      return res.status(500).send(err);
+
+      // return res.status(500).send(err);
+      await Users.update({
+        image: uploadPath
+      },
+      {where:{id:req.session.user.id}})
+    });
+    res.send('File uploaded!');
+});
 
 module.exports = router;

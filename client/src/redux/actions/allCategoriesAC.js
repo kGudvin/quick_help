@@ -9,8 +9,8 @@ export const setCategories = (value) => {
 }
 
 export const getAllCategories = () => async (dispatch) => {
-  console.log("getAlCtAc");
+  // console.log("getAlCtAc");
   const res = await axios('/categories')
-  console.log(res);
+  // console.log(res);
   dispatch(setCategories(res.data.categories))
 }
