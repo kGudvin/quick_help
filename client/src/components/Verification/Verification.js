@@ -11,7 +11,7 @@ export default function Verification() {
   const navigate = useNavigate();
   
   const categories = useSelector((state) => state.allCategories);
-  const user = useSelector(state=>state.users)
+  const user = useSelector(state=>state.oneUser)
   const [inputs, setInputs] = useState({
     name: user.name,
     secondname: user.secondname,

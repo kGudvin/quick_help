@@ -5,9 +5,11 @@ import { rolesReducer } from './rolesReducer'
 import { oneUserTaskReducer } from './oneUserTaskReducer'
 import { allCategoriesReducer } from './allCategoriesReducer'
 import { currentUserTaskReducer } from './currentUserTasksReducers'
+import { oneUserReducer } from './oneUserReducer'
 
 
 export const rootReducer = combineReducers({
+  oneUser:oneUserReducer,
   users: usersReducer,
   usersTasks: usersTasksReducer,
   roles: rolesReducer,

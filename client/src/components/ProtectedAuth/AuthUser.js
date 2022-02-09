@@ -4,7 +4,7 @@ import { useLocation, Navigate } from 'react-router-dom';
 import style from './authuser.module.css'
 
 const AuthUser = ({ children }) => {
-    const user = useSelector(state => state.users);
+    const user = useSelector(state => state.oneUser);
     let location = useLocation();
 
     if(user){

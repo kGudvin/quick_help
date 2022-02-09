@@ -20,6 +20,7 @@ import Footer from "./components/Footer/Footer";
 import OrganizationPage from "./components/pages/OrganizationPage/OrganizationPage";
 import AddTaskForm from "./components/AddTaskForm/AddTaskForm";
 import MyTasks from "./components/pages/Tasks/MyTasks/MyTasks";
+import TEST from "./components/pages/TEST";
 
 
 
@@ -85,7 +86,7 @@ function App() {
             </Protectedauth>
           }
         />
-        <Route path="/test" element={<Ymap/>} />
+        <Route path="/test" element={<TEST/>} />
       </Routes>
       <Footer />
     </>

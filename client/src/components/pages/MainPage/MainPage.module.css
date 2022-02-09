@@ -76,7 +76,7 @@
 
 /* контейне с кружками и информацией */
 .container__small{
-  padding: 0px 0px 50px 0px;
+  padding: 20px 40px 50px 40px;
   min-height: 200px; 
   display: flex;
   align-items: center;
@@ -84,27 +84,32 @@
 }
 .container__small hr{
   width: 1px;
-  height: 50px;
+  height: 90px;
 }
 .img__block__small_round{
+  
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 55px;
-  height: 55px;
+  width: 60px;
+  height: 60px;
   border-radius: 100%;
   background: #FFECEC;
   color: #F53855;
   font-size: 24px;
 }
 .container__block_small{
+  width: 33%;
   display: flex;
   align-items: center;
+  justify-content: space-around
 }
 .text__block_small{
+  text-align: center;
   font-size: 20px;
-  margin: 0 10px 0 10px;
+  width: 220px;
+  margin: 0 20px 0 0px;
 }
 
 /* малекьие таски */

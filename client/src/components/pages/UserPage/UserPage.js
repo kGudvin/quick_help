@@ -6,9 +6,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentUser } from "../../../redux/actions/userAC";
 
-
 export default function UserPage() {
-  const currentUser = useSelector((state) => state.users);
+  const currentUser = useSelector((state) => state.oneUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const id = useParams();
@@ -23,54 +22,49 @@ export default function UserPage() {
 
   return (
     <>
-    <div className={style.container__account}>
-      {currentUser.name &&
-      currentUser.secondname &&
-      currentUser.patronymic &&
-      currentUser.age &&
-      currentUser.about &&
-      currentUser.email &&
-      currentUser.phone &&
-      currentUser.image ? (
-        <h3>Привет, {currentUser.name}</h3>
-      ) : (
-        <div className={style.notification__infoUser}>
-          Заполните профиль, чтобы Вас быстрее одобрили при выборе исполнителя?
-          <div>
-            <button
-              className={style.notification__infoUser_btn}
-              onClick={changePathtoQuizz}
-            >
-              Заполнить информацию
-            </button>
+      <div className={style.container__account}>
+        {currentUser.name &&
+        currentUser.secondname &&
+        currentUser.patronymic &&
+        currentUser.age &&
+        currentUser.about &&
+        currentUser.email &&
+        currentUser.phone &&
+        currentUser.image ? (
+          <h3>Привет, {currentUser.name}</h3>
+        ) : (
+          <div className={style.notification__infoUser}>
+            Заполните профиль, чтобы Вас быстрее одобрили при выборе
+            исполнителя?
+            <div>
+              <button
+                className={style.notification__infoUser_btn}
+                onClick={changePathtoQuizz}
+              >
+                Заполнить информацию
+              </button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      <div className={style.wrapper__account}>
-        <div className={style.header_wrapper__account}>
+        <div className={style.wrapper__account}>
           <div className={style.wrapper_photo__account}>
             <div className={style.photo__account}>
-              {currentUser.image ?
-             (
+              {currentUser.image ? (
                 <div>
-                      <img
-                         src={`http://localhost:3001${currentUser.image}`} alt="dhg"
-                      />
+                  <img
+                    src={`http://localhost:3001${currentUser.image}`}
+                    alt="dhg"
+                  />
                 </div>
-               )
-               :
-               (
-               
+              ) : (
                 <div>
-                      <img
-                         src="https://cdn-icons-png.flaticon.com/512/166/166260.png"
-                         alt="photo userA"
-                      />
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/166/166260.png"
+                    alt="photo userA"
+                  />
                 </div>
-               )
-              }
-
+              )}
             </div>
 
             <div className={style.rating__account}>
@@ -78,24 +72,25 @@ export default function UserPage() {
               <Rating />
             </div>
           </div>
+
           <div className={style.wrapper_info__account}>
             <div className={style.header_info__account}>
-              <div className={style.main_info__account}>
-                Имя:{currentUser.name}
+              <div className={style.bio_info__account}>
+      
+                {
+                `ФИО: ${currentUser.secondname} ${currentUser.name}  ${currentUser.patronymic}`
+                
+                }
               </div>
               <div className={style.main_info__account}>
-                Очество: {currentUser.patronymic}
-              </div>
-              <div className={style.main_info__account}>
-                Фамилия:{currentUser.secondname}
-              </div>
-              <div className={style.main_info__account}>
-                Возраст: {currentUser.age}
+                {`Возраст: ${currentUser.age}`}
               </div>
             </div>
             <div className={style.main_info__account}>
-              О себе:
-              {currentUser.about}
+             {
+               `О себе: ${currentUser.about}`
+               
+             } 
             </div>
             <div className={style.main_info__account}>
               Телефон для связи:<strong>{Number(currentUser.phone)}</strong>
@@ -114,8 +109,6 @@ export default function UserPage() {
           </button>
         </div>
       </div>
-    </div>
-    
     </>
   );
 }

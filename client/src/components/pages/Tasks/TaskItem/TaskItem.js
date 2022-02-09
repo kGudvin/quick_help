@@ -12,7 +12,7 @@ function TaskItem({id, title, adress, time, date, price, description, image, cat
 const allTasks = useSelector(state=>state.currentUserTasks)
 
 const array = allTasks.map(el => el.id)
-console.log(array, id, array.indexOf(id));
+// console.log(array, id, array.indexOf(id));
 let flag
 if(array.indexOf(id) >= 0){
   flag = true
