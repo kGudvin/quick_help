@@ -2,8 +2,11 @@ import {useSelector, useDispatch} from 'react-redux'
 import { deletePerformer } from '../../../../redux/actions/performersAc';
 import Rating from "../../../UI/Rating/Rating";
 import style from "./SmallUserCard.module.css";
-function SmallUserCard({taskId, id, index, image, secondname,patronymic,name, email, phone,about}) {
+import userAvatar from '../../../img/icons/user.png'
 
+
+function SmallUserCard({taskId, id, index, image, secondname,patronymic,name, email, phone,about}) {
+  
 
 const dispatch = useDispatch()
   return (
@@ -21,13 +24,13 @@ const dispatch = useDispatch()
             {image ? (
                   <img
                     src={`http://localhost:3001${image}`}
-                    alt="dhg"
+                    alt="photo userA"
                   />
                 
               ) : (
 
                   <img
-                    src="https://cdn-icons-png.flaticon.com/512/166/166248.png"
+                    src={userAvatar}
                     alt="photo userA"
                   />
                

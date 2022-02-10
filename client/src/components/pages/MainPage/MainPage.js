@@ -89,14 +89,7 @@ useEffect(() => {
       <div className={style.container__taskBlock}>
      
       <h3 className={style.header__main}>Вакансии и услуги</h3>
-     {/* тут мапаемcя по всем вакансиям и отражаем 5 */}
-     {/* <div className={style.vacatcies__taskBlock}>
-     <Vacancie/>
-     <Vacancie/>
-     <Vacancie/>
-     <Vacancie/>
-     <Vacancie/>
-     </div> */}
+    
      <TasksMP lim={lim} price={price}/>
      <Link to="/findtask">
      <button className={style.btns__main} >Показать еще</button></Link>
