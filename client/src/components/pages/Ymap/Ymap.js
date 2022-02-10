@@ -7,40 +7,26 @@ import { getUsersTasks } from '../../../redux/actions/userTasksAC';
 let ymaps = window.ymaps;
 
 
-function Ymap({input}) {
+function Ymap({input, price, result}) {
+  const myM = document.getElementById('map')
     const dispatch = useDispatch()
-    const [per, setPer] = useState(true)
+    // const [per, setPer] = useState(true)
     const tasks = useSelector(state=>state.usersTasks)
-    // let regexp = new RegExp(input, 'i')
-    // let result = tasks.filter(el=>regexp.test(el.title))
-    // const someFunction = useCallback(() => {
-    //     if(tasks.length){
-    //         // console.log('монтирование',per);
-    //        ymaps.ready(init)  
-    //    } 
-    //   }, [tasks])
-    
-    
-    
-    
-     
-   
-    
      const init = () =>{
        
         const myMap = new ymaps.Map("map", {
             center: [55.745280288813746,37.626212873046875],
             zoom: 11
         }) 
-        tasks.map((el)=>{
+        result.map((el)=>{
             const geocoder = ymaps.geocode(el.address);
             geocoder.then((res)=>{
             const coordinates = res.geoObjects.get(0).geometry.getCoordinates();
-            setPer(prev=>!prev)
+            // setPer(prev=>!prev)
             // console.log(per);
             myMap.geoObjects
             .add(new ymaps.Placemark(coordinates, {
-                balloonContent: `<h2>Организация:${el.title}</h2>
+                balloonContent: `<h2>${el.title}</h2>
                 <h3>адрес:${el.address}</h3>
                 <h3>дата:${el.date}</h3>
                 <h3>цена:${el.price}</h3>
@@ -55,35 +41,38 @@ function Ymap({input}) {
         
     }
     useEffect(()=>{
-      // setTimeout(()=>{
-      //   console.log("ggfds");
-      // },5000)
-      dispatch(getUsersTasks())
-         console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb');
-        //  someFunction()
-         if(tasks.length && per){
-            // setTimeout(()=>{
-                console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
-                ymaps.ready(init)  
-            // },1000)
-       } 
-        },[]);  
+   
+      console.log(result);
+      if(result.length !== tasks.length ){
+        
+        // myM.innerHTML=""
+      }
 
-        // useEffect(() => {
-        //     return () => {
-        //         setPer(prev=>!prev)
-        //         console.log("Демонтирование",per);
-        //       // Your code you want to run on unmount.
-        //     };
-        //   }, []); 
+          // setTimeout(()=>{
+            ymaps.ready(init)  
+          // }, 700)
 
+        },[result]);  
+        useEffect(()=>{
+   
+          dispatch(getUsersTasks())
+          
+          ymaps.ready(init) 
+          // setTimeout(()=>{
+        // myM.innerHTML=""
+
+              // },700)
     
-    
+            },[]);  
+
+
+     
+     
  
   return (
     
      <div className={`${style.map_container}`}>
-          <div id="map" style={{width: "100%", height: "500px"}}></div>
+          <div id="map" style={{width: "100%", height: "500px"}} className={`${style.map_div}`} ></div>
        </div>
       
      
@@ -91,4 +80,4 @@ function Ymap({input}) {
   )
 }
 
-export default Ymap;
+export default React.memo(Ymap)

@@ -7,6 +7,7 @@ import Tasks from "../Tasks/TasksPage/Tasks";
 import { useDispatch } from "react-redux";
 import { getUsersTasks } from "../../../redux/actions/userTasksAC";
 import { Link } from "react-router-dom";
+import TasksMP from "../Tasks/TasksMP/TasksMP";
 
 function MainPage() {
 const [lim, setLim] = useState(100)
@@ -96,7 +97,7 @@ useEffect(() => {
      <Vacancie/>
      <Vacancie/>
      </div> */}
-     <Tasks lim={lim} price={price}/>
+     <TasksMP lim={lim} price={price}/>
      <Link to="/findtask">
      <button className={style.btns__main} >Показать еще</button></Link>
       </div>

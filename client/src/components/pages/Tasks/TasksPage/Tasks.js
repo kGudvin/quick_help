@@ -4,37 +4,35 @@ import { setOneUserTask } from '../../../../redux/actions/currentUserTasksAC';
 import {getUsersTasks} from '../../../../redux/actions/userTasksAC'
 import TaskItem from '../TaskItem/TaskItem';
 
-function Tasks({input, price, cat, lim}) {
+function Tasks({input, price, cat, lim, result}) {
 
   const dispatch = useDispatch()
-  const allTasks = useSelector(state=>state.usersTasks)
-  console.log(allTasks);
-  let regexp = new RegExp(input, 'i')
-  const [result, setResult] = useState(allTasks)
+//   const allTasks = useSelector(state=>state.usersTasks)
+//   let regexp = new RegExp(input, 'i')
+//   const [result, setResult] = useState(allTasks)
   
-  useEffect(()=>{
-if(price){
-  let as = allTasks.filter(el=>el.price >= price)
-  setResult(as)
+//   useEffect(()=>{
+// if(price){
+//   let as = allTasks.filter(el=>el.price >= price)
+//   setResult(as)
 
-  }
-  }, [price])
-  useEffect(()=>{
-  let res = allTasks.filter(el=>regexp.test(el.title))
-  setResult(res)
-  }, [input])
+//   }
+//   }, [price])
+//   useEffect(()=>{
+//   let res = allTasks.filter(el=>regexp.test(el.title))
+//   setResult(res)
+//   }, [input])
 
-  useEffect(()=>{
-    if(cat){
-      let catRes = allTasks.filter(el=>el.categorie === cat)
-      setResult(catRes)
+//   useEffect(()=>{
+//     if(cat){
+//       let catRes = allTasks.filter(el=>el.categorie === cat)
+//       setResult(catRes)
     
-      }
-  }, [cat])
-  useEffect(()=>{
-    dispatch(getUsersTasks(lim))
-    console.log("aaaaaaaaaaaaaaaaaaaaaaa");
-  },[])
+//       }
+//   }, [cat])
+//   useEffect(()=>{
+//     dispatch(getUsersTasks(lim))
+//   },[])
   
   return (
     <>

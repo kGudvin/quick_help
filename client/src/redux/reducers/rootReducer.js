@@ -19,5 +19,7 @@ export const rootReducer = combineReducers({
   allCategories: allCategoriesReducer,
   currentUserTasks: currentUserTaskReducer,
   performers: performersReducer,
-  currentUserMissions: userMissionReducer
+  currentUserMissions: userMissionReducer,
+  
+
 })
