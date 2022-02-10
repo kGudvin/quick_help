@@ -1,17 +1,18 @@
-
+import {useSelector, useDispatch} from 'react-redux'
+import { deletePerformer } from '../../../../redux/actions/performersAc';
 import Rating from "../../../UI/Rating/Rating";
 import style from "./SmallUserCard.module.css";
-function SmallUserCard({index, image,secondname,patronymic,name, email, phone,about}) {
+function SmallUserCard({taskId, id, index, image, secondname,patronymic,name, email, phone,about}) {
 
 
-
+const dispatch = useDispatch()
   return (
 <div className={style.container_user__card}>
-      <div style={{margin:'20px'}}>
+      {/* <div style={{margin:'20px'}}>
       {
-    `${index}. Соискатель ${name} откликнулся на задание НАЗВАНИЕ ЗАДАНИЯ ТУТ:`
+    `${index}.на задание НАЗВАНИЕ ЗАДАНИЯ ТУТ откликнулся  ${name}`
       }
-      </div>
+      </div> */}
   <div className={style.wrapper_user__card}>
     <div className={style.wrapper_photorating__card}>
         
@@ -59,7 +60,7 @@ function SmallUserCard({index, image,secondname,patronymic,name, email, phone,ab
         
         <div className={style.wrapper_btns__card}>
           <button>Пригласить</button>
-          <button>Отклонить</button>
+          <button onClick={()=> dispatch(deletePerformer({performerId:id,taskId}))}>Отклонить</button>
           <button>Написать</button>
         </div>
    

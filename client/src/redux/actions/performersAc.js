@@ -10,7 +10,14 @@ export const setPerformers = (value) => {
 
 export const getAllPerformers = () => async (dispatch) => {
   console.log("getAllPerformers");
-  const res = await axios('/performers')
-  // console.log(res);
-  dispatch(setPerformers(res.data.currentUserPerformers))
+  const res = await axios('performers/getUserPerformers')
+  console.log(res)
+  dispatch(setPerformers(res.data))
+}
+
+export const deletePerformer = ({performerId, taskId}) => async (dispatch) => {
+  console.log("delete current performer")
+  const res = await axios.post('/performers/deletePerformer', {performerId, taskId})
+  console.log(res)
+  dispatch(setPerformers(res.data))
 }
