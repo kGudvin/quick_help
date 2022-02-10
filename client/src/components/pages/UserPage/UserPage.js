@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentUser } from "../../../redux/actions/userAC";
-
+import userAvatar from '../../img/icons/user.png'
 export default function UserPage() {
   const currentUser = useSelector((state) => state.oneUser);
   const dispatch = useDispatch();
@@ -60,9 +60,10 @@ export default function UserPage() {
               ) : (
                 <div>
                   <img
-                    src="https://cdn-icons-png.flaticon.com/512/166/166260.png"
+                    src={userAvatar}
                     alt="photo userA"
                   />
+                
                 </div>
               )}
             </div>
