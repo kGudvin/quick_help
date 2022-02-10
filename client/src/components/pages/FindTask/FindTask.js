@@ -68,12 +68,19 @@ const FindTask = () => {
       <Ymap input={input} price={price} result={result}/>
       <div className={`${style.div}`}>
         <input onChange={(e) => handleChange(e)} className={`${style.input}`} placeholder="поиск по имени"/>
-         <select onChange={(e) => handleCat(e)} className={`${style.input}`}>{categories.map(el => <option key={el.id} value={el.title}>{el.title}</option>)}
+         <select onChange={(e) => handleCat(e)} className={`${style.input}`}>
+           {/* <optin selected>Выберете категорию</optin> */}
+        {categories.map(el =>
+           <option key={el.id} value={el.title}>{el.title}</option>)
+        }
         </select> 
         <input  type="number" onChange={(e) => handlePrice(e)} className={`${style.input}`} placeholder="цена от-"/>
 
       </div>
+      <div className={style.wrapper_task}>
+
       <Tasks input={input} price={price} cat={cat} lim={lim} result={result}/>
+      </div>
       {/* <button className={style.btns__main} onClick={()=>setLim(prev=>prev+3)}>Показать еще</button> */}
     </>
   )

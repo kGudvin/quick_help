@@ -77,13 +77,13 @@ if(array.indexOf(id) >= 0 ){
           Описание:
           {description}
         </div>
-        <div>
+        <div className={style.btns__vacantie}>
           {!flag ? (
             <button onClick={() => dispatch(takeOnTheTask(id))}>
               Откликнуться на вакансию
             </button>
           ) : (
-            "Вы откликнулись"
+            <span className={style.span__vacantie}>Вы откликнулись</span>
           )}
           <button>Написать работодателю</button>
         </div>
