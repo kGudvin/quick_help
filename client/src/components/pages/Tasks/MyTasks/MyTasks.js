@@ -12,7 +12,7 @@ function MyTasks(props) {
   },[])
   return (
     <>
-    {allTasks.map(el => <TaskItem key={el.id} id={el.id} title={el.title} adress={el.adress} time={el.time} date={el.date} price={el.price}
+    {allTasks.map(el => <TaskItem key={el.id} id={el.id} title={el.title} address={el.address} time={el.time} date={el.date} price={el.price}
     description={el.description} image={el.image} categorie={el.categorie}/>)}
     </>
   );
