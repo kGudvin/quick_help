@@ -10,6 +10,7 @@ const userRouter = require('./routes/userRouter');
 const rolesRouter = require('./routes/rolesRouter');
 const usersTasksRouter = require('./routes/usersTasksRouter');
 const categoriesRouter = require('./routes/categoriesRouter')
+const performersRouter = require('./routes/performersRouter')
 const path = require('path')
 
 const PORT = 3001;
@@ -41,7 +42,7 @@ app.use('/user', userRouter);
 app.use('/roles', rolesRouter)
 app.use('/userstasks', usersTasksRouter)
 app.use('/categories', categoriesRouter)
-
+app.use('/performers', performersRouter)
 
 app.listen(PORT, () => {
     console.log('Server start on port ', PORT)
