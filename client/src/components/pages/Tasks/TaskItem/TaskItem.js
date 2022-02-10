@@ -6,7 +6,11 @@ import ProgressBar from "../../../UI/ProgressBar/ProgressBar";
 import Rating from "../../../UI/Rating/Rating";
 import style from "./TaskItem.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import courierAvatar  from '../../../img/icons/courier.png'
+import courierAvatar from "../../../img/icons/courier.png";
+import repairhouse from "../../../img/icons/home-repair.png";
+import settings from "../../../img/icons/settings.png";
+import deliveryTruck from "../../../img/icons/delivery-truck.png";
+import broom from "../../../img/icons/broom.png";
 function TaskItem({
   id,
   title,
@@ -35,31 +39,30 @@ function TaskItem({
     flag = false;
   }
 
-  const checkCategory =()=> {
+  const checkCategory = (category) => {
+    switch (category) {
+      case "Курьерские услуги":
+        return courierAvatar;
+      case "Ремонт и строительство":
+        return repairhouse;
+      case "Грузоперевозки":
+        return deliveryTruck;
+      case "Уборка помещения":
+        return broom;
+      case "Компьютерная помощь":
+        return settings;
 
-  }
-  
+      default:
+        return "https://cdn-icons-png.flaticon.com/512/166/166260.png";
+    }
+  };
+
   const dispatch = useDispatch();
   return (
     <div className={style.wrapper__vacantie}>
       <div className={style.img__vacantie}>
         <div className={style.img__vacantie_block}>
-          {(categorie === "Курьерские услуги") ?
-
-          ( <img
-           src={courierAvatar}
-           alt="vacancy img"
-         />
-         )
-         :
-         ( <img
-          src="https://cdn-icons-png.flaticon.com/512/166/166260.png"
-          alt="vacancy img"
-        />
-        )
-
-        }
-         
+          <img src={checkCategory(categorie)} alt="avatar" />
         </div>
         <div className={style.rating__vacantie}>
           <Rating />

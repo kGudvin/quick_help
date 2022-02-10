@@ -67,7 +67,7 @@ module.exports = {
         userId:5,
         description:"Помыть полы и пропылесосить в офисе, площадь 300м",
         image:null,
-        categorie:"Курьерские услуги",
+        categorie:"Уборка помещения",
         createdAt:new Date(),
         updatedAt:new Date()
       },
