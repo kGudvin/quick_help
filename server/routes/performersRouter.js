@@ -91,3 +91,37 @@ router.get('/allAcceptedMissions', async(req,res)=>{
   const allAcceptedTasks = await AcceptedTasks.findAll({where:{ownerId:req.session.user.id}})
   res.json(allAcceptedTasks)
 })
+
+
+//отмечает конкретное задание как выполненное 
+router.post('/submitascomplitedforpodrabotka', async(req,res)=> {
+  const {taskId} = req.body
+  console.log(taskId)
+  const changedTask = await AcceptedTasks.update({status:"done"},{where:{id:taskId}})
+  console.log(changedTask)
+  res.sendStatus(200)
+})
+
+
+
+router.post('/submitascomplitedforzadania', async(req,res)=> {
+  console.log("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
+  const {taskId} = req.body
+  const currentTask = await AcceptedTasks.findOne({where:{id:taskId}})
+
+  const {ownerId, performerId, price} = currentTask
+  
+  const onwer = await Users.findOne({where:{id:ownerId}})
+  const ownerAccount = onwer.account
+
+  const performer = await Users.findOne({where:{id:performerId}})
+  const performerAccount = performer.account
+
+  const onwerUpdate = await Users.update({price:(ownerAccount-price)}, {where:{id:ownerId}})
+
+  const performerUpdate = await Users.update({price:(performerAccount+price)}, {where:{id:performerId}})
+
+  await AcceptedTasks.destroy({where:{id:taskId}})
+
+  res.sendStatus(200)
+})

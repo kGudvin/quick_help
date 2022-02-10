@@ -16,11 +16,11 @@ function MyTasks(props) {
   return (
     <>
     {allTasks.map(el => <TaskItem key={el.id} id={el.id} title={el.title} address={el.address} time={el.time} date={el.date} price={el.price}
-    description={el.description} image={el.image} categorie={el.categorie}/>)}
+    description={el.description} image={el.image} categorie={el.categorie} flajok={1}/>)}
     <hr></hr>
     {allAcceptedTasks.length>0?
-    (allAcceptedTasks.map(el => <TaskItem key={el.id} id={el.id} title={el.title} adress={el.adress} time={el.time} date={el.date} price={el.price}
-    description={el.description} image={el.image} categorie={el.categorie}/>)):''}
+    (allAcceptedTasks.map(el => <TaskItem key={el.id} newId={el.id} title={el.title} adress={el.adress} time={el.time} date={el.date} price={el.price}
+    description={el.description} image={el.image} categorie={el.categorie} flajok={2}/>)):''}
     </>
   );
 }

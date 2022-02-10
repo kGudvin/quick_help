@@ -11,6 +11,8 @@ import repairhouse from "../../../img/icons/home-repair.png";
 import settings from "../../../img/icons/settings.png";
 import deliveryTruck from "../../../img/icons/delivery-truck.png";
 import broom from "../../../img/icons/broom.png";
+import { submitAsComplitedForPerformer } from "../../../../redux/actions/acceptedTasksForPodrabotkaAC";
+import { submitAsComplitedForOwner } from "../../../../redux/actions/acceptedTasksForZadaniaAC";
 function TaskItem({
   id,
   title,
@@ -20,6 +22,9 @@ function TaskItem({
   price,
   description,
   categorie,
+  flajok,
+  newId,
+  status
 }) {
   const allTasks = useSelector((state) => state.currentUserTasks);
   const user = useSelector((state) => state.users);
@@ -49,6 +54,15 @@ if(array.indexOf(id) >= 0 ){
         return "https://cdn-icons-png.flaticon.com/512/166/166260.png";
     }
   };
+
+
+  const doneHandler = () =>{
+    console.log('ya sdelal')
+
+  }
+console.log(id, newId)
+
+
 
   const dispatch = useDispatch();
   return (
@@ -88,6 +102,9 @@ if(array.indexOf(id) >= 0 ){
           <button>Написать работодателю</button>
         </div>
       </div>
+
+      {flajok===2?<button onClick={()=>dispatch(submitAsComplitedForPerformer({taskId:newId}))}> Я уже справился с этим заданием</button> :''}
+      {status==="done"? (<button onClick={()=>dispatch(submitAsComplitedForOwner({taskId:newId}))}>Подтверждаю, что исполнитель справился с задачей</button>):""}
       {/*
       <p></p>
       <p>{categorie}</p>

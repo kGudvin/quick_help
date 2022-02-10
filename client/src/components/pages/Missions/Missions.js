@@ -20,7 +20,7 @@ function Missions(props) {
     description={el.description} image={el.image} categorie={el.categorie}></TaskItem>)}
     <hr></hr>
     {allAcceptedTasks.map(el => <TaskItem key={el.id} id={el.id} title={el.title} adress={el.adress} time={el.time} date={el.date} price={el.price}
-    description={el.description} image={el.image} categorie={el.categorie}></TaskItem>)}
+    description={el.description} image={el.image} categorie={el.categorie} status={el.status} newId={el.id} ></TaskItem>)}
     </>
   );
 }

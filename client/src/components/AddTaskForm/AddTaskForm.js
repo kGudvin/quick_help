@@ -4,6 +4,7 @@ import { getAllCategories } from '../../redux/actions/allCategoriesAC';
 import {addUserTask } from '../../redux/actions/userTasksAC'
 import style from "./addtask.module.css";
 import img from "../img/imgmansecond.jpg";
+import { Link } from 'react-router-dom';
 
 function AddTaskForm(props) { 
 
