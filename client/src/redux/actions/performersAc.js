@@ -21,3 +21,10 @@ export const deletePerformer = ({performerId, taskId}) => async (dispatch) => {
   console.log(res)
   dispatch(setPerformers(res.data))
 }
+
+export const acceptPerformer = ({performerId, taskId}) => async (dispatch) => {
+  console.log("ACCEPTING CURRENT PERFORMER")
+  const res = await axios.post('/performers/acceptPerformer', {performerId, taskId})
+  console.log(res)
+  dispatch(setPerformers(res.data))
+  }

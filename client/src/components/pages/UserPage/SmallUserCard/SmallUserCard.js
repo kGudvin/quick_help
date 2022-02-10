@@ -1,5 +1,5 @@
 import {useSelector, useDispatch} from 'react-redux'
-import { deletePerformer } from '../../../../redux/actions/performersAc';
+import { acceptPerformer, deletePerformer } from '../../../../redux/actions/performersAc';
 import Rating from "../../../UI/Rating/Rating";
 import style from "./SmallUserCard.module.css";
 function SmallUserCard({taskId, id, index, image, secondname,patronymic,name, email, phone,about}) {
@@ -59,7 +59,7 @@ const dispatch = useDispatch()
           </div>
         
         <div className={style.wrapper_btns__card}>
-          <button>Пригласить</button>
+          <button onClick={() => dispatch(acceptPerformer({performerId:id,taskId}))}>Пригласить</button>
           <button onClick={()=> dispatch(deletePerformer({performerId:id,taskId}))}>Отклонить</button>
           <button>Написать</button>
         </div>

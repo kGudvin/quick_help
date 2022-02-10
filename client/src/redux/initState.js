@@ -7,5 +7,7 @@ export const initState ={
   currentUserTasks:[],
   allCategories:[],
   performers:[],
-  currentUserMissions:[]
+  currentUserMissions:[],
+  acceptedTasksForPodrabotka:[],
+  acceptedTasksForZadania:[]
 }

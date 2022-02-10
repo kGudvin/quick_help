@@ -12,12 +12,12 @@ function TaskItem({id, title, adress, time, date, price, description, image, cat
 const allTasks = useSelector(state=>state.currentUserTasks)
 const user = useSelector(state => state.users)
 
-let flag2 
-if(user.id === id){
-  flag2 = true
-}else{
-  flag2=false
-}
+// let flag2 
+// if(user.id === id){
+//   flag2 = true
+// }else{
+//   flag2=false
+// }
 const array = allTasks.map(el => el.id)
 // console.log(array, id, array.indexOf(id));
 let flag

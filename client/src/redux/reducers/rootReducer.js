@@ -8,6 +8,8 @@ import { currentUserTaskReducer } from './currentUserTasksReducers'
 import { performersReducer } from './performersReducer'
 import { userMissionReducer } from './usersMissionsReducer'
 import { oneUserReducer } from './oneUserReducer'
+import { acceptedTasksForPodrabotkaReducer } from './acceptedTasksForPodrabotkaReducer'
+import { acceptedTasksForZadaniaReducer } from './acceptedTasksForZadaniaReducer'
 
 
 export const rootReducer = combineReducers({
@@ -19,5 +21,7 @@ export const rootReducer = combineReducers({
   allCategories: allCategoriesReducer,
   currentUserTasks: currentUserTaskReducer,
   performers: performersReducer,
-  currentUserMissions: userMissionReducer
+  currentUserMissions: userMissionReducer,
+  acceptedTasksForPodrabotka:acceptedTasksForPodrabotkaReducer,
+  acceptedTasksForZadania:acceptedTasksForZadaniaReducer
 })
