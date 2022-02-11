@@ -1,0 +1,13 @@
+.container{
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-evenly;
+}
+.container__taskBlock{
+  padding: 30px 50px 70px 50px;
+  min-height: 600px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

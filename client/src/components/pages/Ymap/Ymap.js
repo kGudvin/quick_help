@@ -18,7 +18,7 @@ function Ymap({input, price, result}) {
             center: [55.745280288813746,37.626212873046875],
             zoom: 11
         }) 
-        result.map((el)=>{
+        tasks.map((el)=>{
             const geocoder = ymaps.geocode(el.address);
             geocoder.then((res)=>{
             const coordinates = res.geoObjects.get(0).geometry.getCoordinates();
@@ -48,11 +48,11 @@ function Ymap({input, price, result}) {
         // myM.innerHTML=""
       }
 
-          // setTimeout(()=>{
+           setTimeout(()=>{
             ymaps.ready(init)  
-          // }, 700)
+           }, 700)
 
-        },[result]);  
+        },[price]);  
         useEffect(()=>{
    
           dispatch(getUsersTasks())
@@ -80,4 +80,4 @@ function Ymap({input, price, result}) {
   )
 }
 
-export default React.memo(Ymap)
+export default Ymap

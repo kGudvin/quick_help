@@ -8,14 +8,15 @@ function TasksMP({input, price, cat,}) {
 
   const dispatch = useDispatch()
   const allTasks = useSelector(state=>state.usersTasks)
+  console.log(allTasks);
   const arr = allTasks.slice(-4)
   useEffect(()=>{
-    dispatch(getUsersTasks(4))
+    dispatch(getUsersTasks())
   },[])
   
   return (
     <>
-    {arr && arr.map(el => <TaskItem key={el.id} id={el.id} title={el.title} adress={el.adress} time={el.time} date={el.date} price={el.price}
+    {allTasks.length>0 && allTasks.map(el => <TaskItem key={el.id} id={el.id} title={el.title} adress={el.adress} time={el.time} date={el.date} price={el.price}
     description={el.description} image={el.image} categorie={el.categorie}/>)}
     </>
   );
