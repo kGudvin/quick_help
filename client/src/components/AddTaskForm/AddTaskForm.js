@@ -4,14 +4,14 @@ import { getAllCategories } from '../../redux/actions/allCategoriesAC';
 import {addUserTask } from '../../redux/actions/userTasksAC'
 import style from "./addtask.module.css";
 import img from "../img/imgmansecond.jpg";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function AddTaskForm(props) { 
 
   const dispatch = useDispatch();
   const [inputs, setInputs] = useState({title:'', address:'', time:'', date:0, price:'', description:'', image:'', categories:1});
   const categories = useSelector( state => state.allCategories);
-
+  const navigate = useNavigate()
   
   const inputHandler = (e) => {
     setInputs(prev => ({...prev, [e.target.name]: e.target.value}))
@@ -23,7 +23,8 @@ const submitHandler = (e) => {
     e.preventDefault();
     console.log(inputs);
     dispatch(addUserTask(inputs))
-    setInputs({title:'', address:'', time:'', date:'', price:0, description:'', image:'', categories:1})
+    // setInputs({title:'', address:'', time:'', date:'', price:0, description:'', image:'', categories:1})
+    navigate('/missions')
   }
   console.log(inputs);
   useEffect(() => {
@@ -49,8 +50,8 @@ const submitHandler = (e) => {
       <input id="price" type="number" name="price" onChange={inputHandler} value={inputs.price}></input>
       <lable for="description">Введите подробное описание Вашего заказа</lable> 
       <input id="description" type="text" name="description" onChange={inputHandler} value={inputs.description}></input>
-      <lable for="image">Прикрепите изображения, относящиеся к заказу</lable>    
-      <input id="image" type="text" name="image" onChange={inputHandler} value={inputs.image}></input> 
+      {/* <lable for="image">Прикрепите изображения, относящиеся к заказу</lable>    
+      <input id="image" type="text" name="image" onChange={inputHandler} value={inputs.image}></input>  */}
       <lable for="categories">Выберите категорию, подходящую к заказу</lable>    
       <select className={style.container_form_input} id="categories" type="select" name="categories" onChange={inputHandler} value={inputs.categories}>
         {categories.map(el => <option key={el.id} value={el.id}>{el.title}</option>)}</select>

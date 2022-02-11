@@ -73,7 +73,7 @@
   align-items: center;
   justify-content: space-between;
 }
-.btns__vacantie button{
+.btns__vacantie, .btn__accept{
   width: 200px;
     padding: 7px;
     height: 45px;
@@ -110,4 +110,16 @@
     display: flex;
   align-items: center;
   justify-content: center;
+}
+.btn__accept {
+  background-color:rgb(74, 211, 245);
+  border: 1px solid rgb(74, 211, 245);
+}
+.btns{
+  display: flex;
+}
+.varnin__vacantie{
+  margin-top: 10px;
+  text-align: center;
+  color: red;
 }

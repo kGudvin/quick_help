@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { takeOnTheTask } from "../../../../redux/actions/currentUserTasksAC";
 import MainButton from "../../../UI/Buttons/MainButton";
@@ -13,7 +13,7 @@ import deliveryTruck from "../../../img/icons/delivery-truck.png";
 import broom from "../../../img/icons/broom.png";
 import { submitAsComplitedForPerformer } from "../../../../redux/actions/acceptedTasksForPodrabotkaAC";
 import { submitAsComplitedForOwner } from "../../../../redux/actions/acceptedTasksForZadaniaAC";
-function TaskItem({
+function AccepdedTaskItem({
   id,
   title,
   address,
@@ -28,7 +28,7 @@ function TaskItem({
 }) {
   const allTasks = useSelector((state) => state.currentUserTasks);
   const user = useSelector((state) => state.users);
-
+const [visible, setVisible]=useState(false)
 const array = allTasks.map(el => el.id)
 // console.log(array, id, array.indexOf(id));
 let flag
@@ -57,10 +57,11 @@ if(array.indexOf(id) >= 0 ){
 
 
   const doneHandler = () =>{
-    console.log('ya sdelal')
+    dispatch(submitAsComplitedForPerformer({taskId:newId}));
+    setVisible(true)
 
   }
-console.log(id, newId)
+
 
 
 
@@ -91,23 +92,21 @@ console.log(id, newId)
           Описание:
           {description}
         </div>
+        {visible && <div className={style.varnin__vacantie}>
+          Ожидайте подтверждения от заказчика
+        </div>}
         <div className={style.btns}>
-          {!flag ? (
-            <button className={style.btns__vacantie} onClick={() => dispatch(takeOnTheTask(id))}>
-              Откликнуться на вакансию
-            </button>
-          ) : (
-            <span className={style.span__vacantie}>Вы откликнулись</span>
-          )}
-          <button className={style.btns__vacantie} >Открыть чат</button>
+        {flajok===2?(
+          <button className={style.btn__accept} onClick={doneHandler}> Задание выполнено </button>) :''}
+        {status==="done"? (<button className={style.btn__accept} onClick={dispatch(submitAsComplitedForOwner({taskId:newId}))}>Подтверждаю выполнение работы</button>):""}
+        <button className={style.btns__vacantie}>Открыть чат</button>
         </div>
       </div>
-{/* 
-      {flajok===2?<button onClick={()=>dispatch(submitAsComplitedForPerformer({taskId:newId}))}> Я уже справился с этим заданием</button> :''}
-      {status==="done"? (<button onClick={()=>dispatch(submitAsComplitedForOwner({taskId:newId}))}>Подтверждаю, что исполнитель справился с задачей</button>):""}
-    */}
+
+    
+   
     </div>
   );
 }
 
-export default TaskItem;
+export default AccepdedTaskItem;

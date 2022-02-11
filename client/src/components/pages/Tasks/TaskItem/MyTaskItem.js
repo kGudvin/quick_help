@@ -13,7 +13,7 @@ import deliveryTruck from "../../../img/icons/delivery-truck.png";
 import broom from "../../../img/icons/broom.png";
 import { submitAsComplitedForPerformer } from "../../../../redux/actions/acceptedTasksForPodrabotkaAC";
 import { submitAsComplitedForOwner } from "../../../../redux/actions/acceptedTasksForZadaniaAC";
-function TaskItem({
+function ExampleTaskItem({
   id,
   title,
   address,
@@ -22,15 +22,15 @@ function TaskItem({
   price,
   description,
   categorie,
-  flajok,
   newId,
-  status
+  status,
+  flajok
 }) {
   const allTasks = useSelector((state) => state.currentUserTasks);
   const user = useSelector((state) => state.users);
 
 const array = allTasks.map(el => el.id)
-// console.log(array, id, array.indexOf(id));
+console.log(array, id, array.indexOf(id));
 let flag
 if(array.indexOf(id) >= 0 ){
   flag = true
@@ -92,22 +92,17 @@ console.log(id, newId)
           {description}
         </div>
         <div className={style.btns}>
-          {!flag ? (
-            <button className={style.btns__vacantie} onClick={() => dispatch(takeOnTheTask(id))}>
-              Откликнуться на вакансию
-            </button>
-          ) : (
-            <span className={style.span__vacantie}>Вы откликнулись</span>
-          )}
-          <button className={style.btns__vacantie} >Открыть чат</button>
-        </div>
+        {flajok===2?<button className={style.btn__accept} onClick={()=>dispatch(submitAsComplitedForPerformer({taskId:newId}))}> Задание выполнено </button> :''}
+        {status==="done"? (<button className={style.btn__accept} onClick={()=>dispatch(submitAsComplitedForOwner({taskId:newId}))}>Подтверждаю выполнение работы</button>):""}
+       
+         {/* <button className={style.btns__vacantie}>Открыть чат</button> */}
+        
       </div>
-{/* 
-      {flajok===2?<button onClick={()=>dispatch(submitAsComplitedForPerformer({taskId:newId}))}> Я уже справился с этим заданием</button> :''}
-      {status==="done"? (<button onClick={()=>dispatch(submitAsComplitedForOwner({taskId:newId}))}>Подтверждаю, что исполнитель справился с задачей</button>):""}
-    */}
+
+    
+   </div>
     </div>
   );
 }
 
-export default TaskItem;
+export default ExampleTaskItem;
