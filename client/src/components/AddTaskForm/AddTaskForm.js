@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import { useSelector, useDispatch} from 'react-redux'
 import { getAllCategories } from '../../redux/actions/allCategoriesAC';
-import {addUserTask } from '../../redux/actions/userTasksAC'
+import {addUserTask, getUsersTasks } from '../../redux/actions/userTasksAC'
 import style from "./addtask.module.css";
 import img from "../img/imgmansecond.jpg";
 import { Link, useNavigate } from 'react-router-dom';
@@ -11,19 +11,22 @@ function AddTaskForm(props) {
   const dispatch = useDispatch();
   const [inputs, setInputs] = useState({title:'', address:'', time:'', date:0, price:'', description:'', image:'', categories:1});
   const categories = useSelector( state => state.allCategories);
-  const navigate = useNavigate()
+
   
   const inputHandler = (e) => {
     setInputs(prev => ({...prev, [e.target.name]: e.target.value}))
 };
 
 // console.log(inputs);
-
+const navigate = useNavigate()
 const submitHandler = (e) => {
     e.preventDefault();
     console.log(inputs);
     dispatch(addUserTask(inputs))
     // setInputs({title:'', address:'', time:'', date:'', price:0, description:'', image:'', categories:1})
+    setTimeout(()=>{
+      dispatch(getUsersTasks())
+    },200)
     navigate('/missions')
   }
   console.log(inputs);

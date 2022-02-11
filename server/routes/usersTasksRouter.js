@@ -49,6 +49,7 @@ router.post('/addnewuserstask', async(req,res) => {
 router.post('/setonetasktouser', async(req,res)=> {
   console.log('object');
   const taskkId = req.body.taskId
+  console.log(taskkId);
   const currentUserInDB = await Users.findOne({where:{id:req.session.user.id}})
   console.log('currentUserInDBcurrentUserInDBcurrentUserInDBcurrentUserInDBcurrentUserInDB',currentUserInDB);
   try {

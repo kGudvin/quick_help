@@ -28,7 +28,7 @@ function TaskItem({
 }) {
   const allTasks = useSelector((state) => state.currentUserTasks);
   const user = useSelector((state) => state.users);
-
+console.log('idididididididididid',id);
 const array = allTasks.map(el => el.id)
 // console.log(array, id, array.indexOf(id));
 let flag

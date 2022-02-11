@@ -18,7 +18,7 @@ function Ymap({input, price, result}) {
             center: [55.745280288813746,37.626212873046875],
             zoom: 11
         }) 
-        result.map((el)=>{
+        tasks.map((el)=>{
             const geocoder = ymaps.geocode(el.address);
             geocoder.then((res)=>{
             const coordinates = res.geoObjects.get(0).geometry.getCoordinates();
@@ -26,11 +26,11 @@ function Ymap({input, price, result}) {
             // console.log(per);
             myMap.geoObjects
             .add(new ymaps.Placemark(coordinates, {
-                balloonContent: `<h2>${el.title}</h2>
-                <h3>адрес:${el.address}</h3>
-                <h3>дата:${el.date}</h3>
-                <h3>цена:${el.price}</h3>
-                <a href="http://localhost:3000/tasks/userstasks/${el.id}"><button>Перейти</button><a>`
+                balloonContent: `<div style="padding:5px;font-size:15px;"><h2>${el.title}</h2>
+                <a>адрес: ${el.address}</a><br/>
+                <a>дата: ${el.date}</a><br/>
+                <a>цена: ${el.price}</a><br/>
+                <a href="http://localhost:3000/tasks/userstasks/${el.id}"><button class="ybutton">Перейти</button><a></div>`
             }, {
                 preset: 'islands#icon',
                 iconColor: '#0095b6'
@@ -48,11 +48,11 @@ function Ymap({input, price, result}) {
         // myM.innerHTML=""
       }
 
-          // setTimeout(()=>{
+           setTimeout(()=>{
             ymaps.ready(init)  
-          // }, 700)
+           }, 700)
 
-        },[result]);  
+        },[price]);  
         useEffect(()=>{
    
           dispatch(getUsersTasks())
@@ -80,4 +80,4 @@ function Ymap({input, price, result}) {
   )
 }
 
-export default React.memo(Ymap)
+export default Ymap

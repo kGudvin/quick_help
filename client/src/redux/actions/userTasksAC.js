@@ -15,6 +15,7 @@ export const addTask = (value) => {
 }
 
 export const getUsersTasks = () =>  async(dispatch) => {
+  console.log("objectobjectobjectobjectobjectobjectobjectobjectobjectobjectobjectobjectobject");
     axios('/userstasks')
     .then(res => dispatch(setTask(res.data.allTasks)))
     .catch(err => console.log(err))
