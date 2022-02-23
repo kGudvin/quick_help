@@ -36,7 +36,7 @@
 
 Для пользователей, на чьи заказы поступили отклики существует возможность выбрать конкретного кандидата для исполнения работ
 
-![selectUser](https://github.com/kGudvin/quick_help/blob/dev/mdPhoto/selectUser.png?raw=true)
+![selectUser](https://github.com/kGudvin/quick_help/blob/dev/mdPhoto/selectUser.png?raw=truegit )
 
 
 
