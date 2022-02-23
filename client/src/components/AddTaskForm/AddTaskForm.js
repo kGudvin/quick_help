@@ -58,7 +58,7 @@ const submitHandler = (e) => {
       <lable for="categories">Выберите категорию, подходящую к заказу</lable>    
       <select className={style.container_form_input} id="categories" type="select" name="categories" onChange={inputHandler} value={inputs.categories}>
         {categories.map(el => <option key={el.id} value={el.id}>{el.title}</option>)}</select>
-      <button className={style.btn_circle}>submit this shit</button>
+      <button className={style.btn_circle}>Разместить задание</button>
     </form>
     </div>
 

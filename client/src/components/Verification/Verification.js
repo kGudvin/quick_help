@@ -110,7 +110,7 @@ export default function Verification() {
             onChange={inputHandler}
             value={inputs.about}
           />
-          <label htmlFor="categories"> Выберете кагорию :</label>
+          <label htmlFor="categories"> Интересующие Вас категории :</label>
           <select className={style.new_select_style_wpandyou}
             id="categories"
             type="select"
