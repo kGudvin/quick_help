@@ -23,7 +23,7 @@
 Так же на странице "Найти задания" пользователь может воспользоваться Картой, чтобы найти задания недалеко от себя, а так же фильтрами для получения более конкретного списка интересующих его задач: реализованы фильтры по Категориям заказов, Цене, Названиям заданий.
 
 ![findtask](https://github.com/kGudvin/quick_help/blob/dev/mdPhoto/findTask.png?raw=true)
-![findtask](https://github.com/kGudvin/quick_help/blob/dev/mdPhoto/FindTask.png?raw=true)
+![findtask](https://github.com/kGudvin/quick_help/blob/dev/mdPhoto/FindTasks.png?raw=true)
 
 
 
