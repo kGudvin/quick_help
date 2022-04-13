@@ -34,7 +34,7 @@
 ![myMissions](https://github.com/kGudvin/quick_help/blob/dev/mdPhoto/myMissions.png?raw=true)
 
 
-Для пользователей, на чьи заказы поступили отклики существует возможность выбрать конкретного кандидата для исполнения работ
+Для пользователей, на чьи заказы поступили отклики, существует возможность выбрать конкретного кандидата для исполнения работ
 
 ![selectUser](https://github.com/kGudvin/quick_help/blob/dev/mdPhoto/selectUser.png?raw=truegit )
 
